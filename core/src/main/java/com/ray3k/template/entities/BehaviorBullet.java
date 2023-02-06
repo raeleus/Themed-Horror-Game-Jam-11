@@ -72,7 +72,6 @@ public class BehaviorBullet extends BehaviourAdapter {
     public void onCollisionEnter(GameObject other, Contact contact) {
         boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
         if (other.getBehaviour(BehaviorWalls.class) != null) {
-            System.out.println("getState() = " + getState());
             if (!destroyed) go.destroy();
         } else {
             var otherEd = other.getBehaviour(EntityData.class);
@@ -83,6 +82,11 @@ public class BehaviorBullet extends BehaviourAdapter {
                 if (fastMovement != null) {
                     fastMovement.speed = fastMovement.speed / 2;
                 }
+    
+                var goreSmall = new GameObject(unBox);
+                var goreSmallBehavior = new BehaviorGoreSmall(goreSmall);
+                goreSmallBehavior.startX = m2p(go.getBody().getPosition().x);
+                goreSmallBehavior.startY = m2p(go.getBody().getPosition().y);
                 
                 otherEd.health -= damage;
                 if (otherEd.health <= 0) {

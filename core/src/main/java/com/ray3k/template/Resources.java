@@ -48,9 +48,11 @@ public class Resources {
         SpineBlood.skinBlood04 = SpineBlood.skeletonData.findSkin("blood04");
         SpineBomber.skeletonData = assetManager.get("spine/bomber.json");
         SpineBomber.animationData = assetManager.get("spine/bomber.json-animation");
+        SpineBomber.animationShake = SpineBomber.skeletonData.findAnimation("shake");
         SpineBomber.animationSpark = SpineBomber.skeletonData.findAnimation("spark");
         SpineBomber.animationSpawn = SpineBomber.skeletonData.findAnimation("spawn");
         SpineBomber.boneRoot = SpineBomber.skeletonData.findBone("root");
+        SpineBomber.boneGameBomber = SpineBomber.skeletonData.findBone("game/bomber");
         SpineBomber.slotGameBomber = SpineBomber.skeletonData.findSlot("game/bomber");
         SpineBomber.slotGameSparkLayer2 = SpineBomber.skeletonData.findSlot("game/spark-Layer-2");
         SpineBomber.skinDefault = SpineBomber.skeletonData.findSkin("default");
@@ -95,6 +97,12 @@ public class Resources {
         SpineExplosion.boneRoot = SpineExplosion.skeletonData.findBone("root");
         SpineExplosion.slotGameExplosionLayer1 = SpineExplosion.skeletonData.findSlot("game/explosion-Layer-1");
         SpineExplosion.skinDefault = SpineExplosion.skeletonData.findSkin("default");
+        SpineGoreSmall.skeletonData = assetManager.get("spine/gore-small.json");
+        SpineGoreSmall.animationData = assetManager.get("spine/gore-small.json-animation");
+        SpineGoreSmall.animationAnimation = SpineGoreSmall.skeletonData.findAnimation("animation");
+        SpineGoreSmall.boneRoot = SpineGoreSmall.skeletonData.findBone("root");
+        SpineGoreSmall.slotGameGoreLayer1 = SpineGoreSmall.skeletonData.findSlot("game/gore-Layer-1");
+        SpineGoreSmall.skinDefault = SpineGoreSmall.skeletonData.findSkin("default");
         SpineGore.skeletonData = assetManager.get("spine/gore.json");
         SpineGore.animationData = assetManager.get("spine/gore.json-animation");
         SpineGore.animationAnimation = SpineGore.skeletonData.findAnimation("animation");
@@ -263,11 +271,15 @@ public class Resources {
 
         public static AnimationStateData animationData;
 
+        public static Animation animationShake;
+
         public static Animation animationSpark;
 
         public static Animation animationSpawn;
 
         public static BoneData boneRoot;
+
+        public static BoneData boneGameBomber;
 
         public static SlotData slotGameBomber;
 
@@ -362,6 +374,20 @@ public class Resources {
         public static BoneData boneRoot;
 
         public static SlotData slotGameExplosionLayer1;
+
+        public static com.esotericsoftware.spine.Skin skinDefault;
+    }
+
+    public static class SpineGoreSmall {
+        public static SkeletonData skeletonData;
+
+        public static AnimationStateData animationData;
+
+        public static Animation animationAnimation;
+
+        public static BoneData boneRoot;
+
+        public static SlotData slotGameGoreLayer1;
 
         public static com.esotericsoftware.spine.Skin skinDefault;
     }

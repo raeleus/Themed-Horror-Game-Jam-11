@@ -5,6 +5,7 @@ spine/boss.json
 spine/bullet.json
 spine/dollar.json
 spine/explosion.json
+spine/gore-small.json
 spine/gore.json
 spine/gun-flare.json
 spine/gunner.json
