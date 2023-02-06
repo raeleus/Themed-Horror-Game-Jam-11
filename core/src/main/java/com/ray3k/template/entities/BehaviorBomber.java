@@ -9,6 +9,7 @@ import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
 import com.ray3k.template.screens.*;
+import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -38,7 +39,8 @@ public class BehaviorBomber extends BehaviourAdapter {
             public void complete(TrackEntry entry) {
                 if (entry.getAnimation() == animationShake) {
                     ed.score = 0;
-                    go.destroy();
+                    boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
+                    if (!destroyed) go.destroy();
                     var explosion = new GameObject(unBox);
                     var explosionBehavior = new BehaviorExplosion(explosion);
                     explosionBehavior.startX = m2p(go.getBody().getPosition().x);

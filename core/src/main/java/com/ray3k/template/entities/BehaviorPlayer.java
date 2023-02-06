@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.ray3k.template.screens.*;
+import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -42,7 +43,8 @@ public class BehaviorPlayer extends BehaviourAdapter {
     @Override
     public void onCollisionEnter(GameObject other, Contact contact) {
         if (other.getBehaviour(BehaviorEnemy.class) != null) {
-            go.destroy();
+            boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
+            if (!destroyed) go.destroy();
         }
     }
     
