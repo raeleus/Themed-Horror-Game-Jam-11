@@ -15,7 +15,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
     private static final Vector2 temp = new Vector2();
     private static float delay = .02f;
     private static float timer;
-    private static float angleRange = 5f;
+    private static float angleRange = 15f;
     
     public BehaviorKeyboardShooting(GameObject gameObject) {
         super(gameObject);

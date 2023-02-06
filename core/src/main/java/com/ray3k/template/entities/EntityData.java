@@ -13,6 +13,7 @@ public class EntityData extends BehaviourAdapter {
     public float startY;
     public BodyType bodyType = BodyType.DynamicBody;
     public float health = 100f;
+    public int score = 0;
     
     public EntityData(GameObject gameObject, SkeletonData skeletonData, AnimationStateData animationStateData, float startX,
                       float startY) {

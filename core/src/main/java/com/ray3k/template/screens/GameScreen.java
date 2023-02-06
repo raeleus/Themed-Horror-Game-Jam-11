@@ -35,10 +35,12 @@ public class GameScreen extends JamScreen {
     public static Label statsLabel;
     public static UnBox unBox;
     public static GameObject player;
+    public static int totalScore;
     
     @Override
     public void show() {
         super.show();
+        totalScore = 0;
     
         gameScreen = this;
         BG_COLOR.set(Color.BLACK);
@@ -121,7 +123,8 @@ public class GameScreen extends JamScreen {
         }
         stage.act(delta);
         
-        statsLabel.setText(mouseX + " " + mouseY);
+//        statsLabel.setText(mouseX + " " + mouseY);
+        statsLabel.setText("Score: " + totalScore);
         fpsLabel.setText(Gdx.graphics.getFramesPerSecond());
     }
     

@@ -37,6 +37,7 @@ public class BehaviorBomber extends BehaviourAdapter {
             @Override
             public void complete(TrackEntry entry) {
                 if (entry.getAnimation() == animationShake) {
+                    ed.score = 0;
                     go.destroy();
                     var explosion = new GameObject(unBox);
                     var explosionBehavior = new BehaviorExplosion(explosion);
@@ -52,6 +53,7 @@ public class BehaviorBomber extends BehaviourAdapter {
             }
         });
         ed.health = 500;
+        ed.score = 2000;
         
         var def = new FixtureDef();
         def.filter.categoryBits = CATEGORY_CHARACTER;
