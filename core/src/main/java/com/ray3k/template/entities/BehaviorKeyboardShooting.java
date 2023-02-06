@@ -55,8 +55,8 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                 timer = delay;
                 var bullet = new GameObject(unBox);
                 var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - angleRange / 2 + MathUtils.random(angleRange), 800f);
-                bulletBehavior.addDeltaX = m2p(player.getBody().getLinearVelocity().x);
-                bulletBehavior.addDeltaY = m2p(player.getBody().getLinearVelocity().y);
+//                bulletBehavior.addDeltaX = m2p(player.getBody().getLinearVelocity().x);
+//                bulletBehavior.addDeltaY = m2p(player.getBody().getLinearVelocity().y);
                 bulletBehavior.owner = BehaviorPlayer.class;
             }
         }

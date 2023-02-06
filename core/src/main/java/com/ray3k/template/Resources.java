@@ -40,8 +40,12 @@ public class Resources {
         SpineBlood.animationData = assetManager.get("spine/blood.json-animation");
         SpineBlood.animationAnimation = SpineBlood.skeletonData.findAnimation("animation");
         SpineBlood.boneRoot = SpineBlood.skeletonData.findBone("root");
+        SpineBlood.boneBone = SpineBlood.skeletonData.findBone("bone");
         SpineBlood.slotGameBlood01 = SpineBlood.skeletonData.findSlot("game/blood-01");
-        SpineBlood.skinDefault = SpineBlood.skeletonData.findSkin("default");
+        SpineBlood.skinBlood01 = SpineBlood.skeletonData.findSkin("blood01");
+        SpineBlood.skinBlood02 = SpineBlood.skeletonData.findSkin("blood02");
+        SpineBlood.skinBlood03 = SpineBlood.skeletonData.findSkin("blood03");
+        SpineBlood.skinBlood04 = SpineBlood.skeletonData.findSkin("blood04");
         SpineBomber.skeletonData = assetManager.get("spine/bomber.json");
         SpineBomber.animationData = assetManager.get("spine/bomber.json-animation");
         SpineBomber.animationAnimation = SpineBomber.skeletonData.findAnimation("animation");
@@ -202,7 +206,7 @@ public class Resources {
         SpineTanker.skinDefault = SpineTanker.skeletonData.findSkin("default");
         SpineZombie.skeletonData = assetManager.get("spine/zombie.json");
         SpineZombie.animationData = assetManager.get("spine/zombie.json-animation");
-        SpineZombie.animationAnimation = SpineZombie.skeletonData.findAnimation("animation");
+        SpineZombie.animationSpawn = SpineZombie.skeletonData.findAnimation("spawn");
         SpineZombie.boneRoot = SpineZombie.skeletonData.findBone("root");
         SpineZombie.slotGameZombie = SpineZombie.skeletonData.findSlot("game/zombie");
         SpineZombie.skinZombie = SpineZombie.skeletonData.findSkin("zombie");
@@ -247,9 +251,17 @@ public class Resources {
 
         public static BoneData boneRoot;
 
+        public static BoneData boneBone;
+
         public static SlotData slotGameBlood01;
 
-        public static com.esotericsoftware.spine.Skin skinDefault;
+        public static com.esotericsoftware.spine.Skin skinBlood01;
+
+        public static com.esotericsoftware.spine.Skin skinBlood02;
+
+        public static com.esotericsoftware.spine.Skin skinBlood03;
+
+        public static com.esotericsoftware.spine.Skin skinBlood04;
     }
 
     public static class SpineBomber {
@@ -609,7 +621,7 @@ public class Resources {
 
         public static AnimationStateData animationData;
 
-        public static Animation animationAnimation;
+        public static Animation animationSpawn;
 
         public static BoneData boneRoot;
 

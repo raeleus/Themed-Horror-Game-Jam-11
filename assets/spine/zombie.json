@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "QZVIW8pZSjw",
+	"hash": "rAM7Jb6oHSY",
 	"spine": "4.1.19",
 	"x": -33,
 	"y": -43,
@@ -34,6 +34,15 @@
 	}
 ],
 "animations": {
-	"animation": {}
+	"spawn": {
+		"slots": {
+			"game/zombie": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			}
+		}
+	}
 }
 }

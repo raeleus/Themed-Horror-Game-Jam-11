@@ -13,6 +13,8 @@ import static com.ray3k.template.Resources.SpineZombie.*;
 public class BehaviorZombie extends BehaviourAdapter {
     private GameObject go;
     private EntityData ed;
+    public float startX;
+    public float startY;
     public BehaviorZombie(GameObject gameObject) {
         super(gameObject);
     }
@@ -20,8 +22,10 @@ public class BehaviorZombie extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, 50, 288);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY);
         ed.skeleton.setSkin(skinZombie);
+        ed.animationState.setAnimation(0, animationSpawn, false);
+        ed.health = 20;
         
         var def = new FixtureDef();
         def.filter.categoryBits = CATEGORY_CHARACTER;

@@ -5,12 +5,15 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.esotericsoftware.spine.Skin;
+import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
+import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
+import static com.ray3k.template.screens.GameScreen.*;
 
 public class BehaviorBullet extends BehaviourAdapter {
     private GameObject go;
@@ -75,7 +78,18 @@ public class BehaviorBullet extends BehaviourAdapter {
             if (otherEd != null && other.getBehaviour(owner) == null && otherEd.health > 0) {
                 destroy = true;
                 otherEd.health -= damage;
-                if (otherEd.health <= 0) other.destroy();
+                if (otherEd.health <= 0) {
+                    other.destroy();
+                    var gore = new GameObject(unBox);
+                    var goreBehavior = new BehaviorGore(gore);
+                    goreBehavior.startX = m2p(go.getBody().getPosition().x);
+                    goreBehavior.startY = m2p(go.getBody().getPosition().y);
+                    
+//                    var blood = new GameObject(unBox);
+//                    var bloodBehavior = new BehaviorBlood(blood);
+//                    bloodBehavior.startX = goreBehavior.startX;
+//                    bloodBehavior.startY = goreBehavior.startY;
+                }
             }
         }
     }

@@ -110,8 +110,8 @@ public class GameScreen extends JamScreen {
         player = new GameObject(unBox);
         new BehaviorPlayer(player);
         
-        var enemy = new GameObject(unBox);
-        new BehaviorZombie(enemy);
+        var spawner = new GameObject(unBox);
+        new BehaviorSpawnerSpawner(spawner);
     }
     
     @Override
@@ -121,6 +121,7 @@ public class GameScreen extends JamScreen {
         }
         stage.act(delta);
         
+        statsLabel.setText(mouseX + " " + mouseY);
         fpsLabel.setText(Gdx.graphics.getFramesPerSecond());
     }
     
@@ -138,7 +139,7 @@ public class GameScreen extends JamScreen {
         batch.setProjectionMatrix(camera.combined);
         unBox.render(batch);
         shapeDrawer.setDefaultLineWidth(2f);
-        debugShapeDrawer.render(unBox.getWorld());
+//        debugShapeDrawer.render(unBox.getWorld());
         batch.end();
         vfxManager.endInputCapture();
         vfxManager.applyEffects();
