@@ -55,17 +55,19 @@ public class AnimationStateDataLoader extends AsynchronousAssetLoader<AnimationS
     @Override
     public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, AnimationStateDataParameter parameter) {
         Array<AssetDescriptor> deps = new Array<AssetDescriptor>();
-        deps.add(new AssetDescriptor(parameter.skeletonDataFileName, SkeletonData.class, new SkeletonDataLoaderParameter(parameter.atlasName)));
+        deps.add(new AssetDescriptor(parameter.skeletonDataFileName, SkeletonData.class, new SkeletonDataLoaderParameter(parameter.atlasName, parameter.scale)));
         return deps;
     }
     
     static public class AnimationStateDataParameter extends AssetLoaderParameters<AnimationStateData> {
         String skeletonDataFileName;
         String atlasName;
+        float scale;
         
-        public AnimationStateDataParameter(String skeletonDataFileName, String atlasName) {
+        public AnimationStateDataParameter(String skeletonDataFileName, String atlasName, float scale) {
             this.skeletonDataFileName = skeletonDataFileName;
             this.atlasName = atlasName;
+            this.scale = scale;
         }
     }
 }

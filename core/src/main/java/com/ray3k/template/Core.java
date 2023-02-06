@@ -664,7 +664,7 @@ public class Core extends JamGame {
     }
     
     public enum Binding {
-        LEFT, RIGHT, UP, DOWN, JUMP, LICK, SHOOT;
+        LEFT, RIGHT, UP, DOWN, SHOOT_LEFT, SHOOT_RIGHT, SHOOT_UP, SHOOT_DOWN
     }
     public static float bgm;
     public static float sfx;
@@ -786,18 +786,19 @@ public class Core extends JamGame {
         
         fileHandle = Gdx.files.internal("spine.txt");
         if (fileHandle.exists()) for (String path2 : fileHandle.readString("UTF-8").split("\\n")) {
-            assetManager.load(path2 + "-animation", AnimationStateData.class, new AnimationStateDataParameter(path2, textureAtlasPath));
+            assetManager.load(path2 + "-animation", AnimationStateData.class, new AnimationStateDataParameter(path2, textureAtlasPath, .25f));
         }
     }
     
     public void setDefaultBindings() {
-        addKeyBinding(Binding.LEFT, Keys.LEFT);
-        addKeyBinding(Binding.RIGHT, Keys.RIGHT);
-        addKeyBinding(Binding.UP, Keys.UP);
-        addKeyBinding(Binding.DOWN, Keys.DOWN);
-        addKeyBinding(Binding.SHOOT, Keys.C);
-        addKeyBinding(Binding.LICK, Keys.X);
-        addKeyBinding(Binding.JUMP, Keys.Z);
+        addKeyBinding(Binding.LEFT, Keys.A);
+        addKeyBinding(Binding.RIGHT, Keys.D);
+        addKeyBinding(Binding.UP, Keys.W);
+        addKeyBinding(Binding.DOWN, Keys.S);
+        addKeyBinding(Binding.SHOOT_LEFT, Keys.LEFT);
+        addKeyBinding(Binding.SHOOT_RIGHT, Keys.RIGHT);
+        addKeyBinding(Binding.SHOOT_UP, Keys.UP);
+        addKeyBinding(Binding.SHOOT_DOWN, Keys.DOWN);
     }
     
     public static class ControllerHandler implements ControllerListener {

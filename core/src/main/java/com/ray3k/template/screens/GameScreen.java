@@ -7,22 +7,21 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.template.*;
-import com.ray3k.template.OgmoReader.*;
+import com.ray3k.template.Resources.*;
 import com.ray3k.template.entities.*;
 import com.ray3k.template.screens.DialogDebug.*;
 import com.ray3k.template.screens.DialogPause.*;
+import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.UnBox;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import static com.ray3k.template.Core.*;
@@ -34,6 +33,8 @@ public class GameScreen extends JamScreen {
     public boolean paused;
     private Label fpsLabel;
     public static Label statsLabel;
+    public static UnBox unBox;
+    public static GameObject player;
     
     @Override
     public void show() {
@@ -93,15 +94,20 @@ public class GameScreen extends JamScreen {
     
         camera = new OrthographicCamera();
         camera.zoom = 1;
+        camera.position.set(512, 288, 0);
         viewport = new FitViewport(1024, 576, camera);
-
+    
+        debugShapeDrawer = new Box2DDebugShapeDrawer(shapeDrawer);
         
+        unBox = new UnBox(new Vector2(0, 0), true);
+        player = new GameObject(unBox);
+        new BehaviorPlayer(player, SpinePlayer.skeletonData, SpinePlayer.animationData, 512, 288);
+        new BehaviorKeyboardMovement(player, 300);
     }
     
     @Override
     public void act(float delta) {
         if (!paused) {
-            
             vfxManager.update(delta);
         }
         stage.act(delta);
@@ -111,6 +117,7 @@ public class GameScreen extends JamScreen {
     
     @Override
     public void draw(float delta) {
+        unBox.preRender(Gdx.graphics.getDeltaTime());
         batch.setBlendFunction(GL20.GL_ONE, GL20.GL_ONE_MINUS_SRC_ALPHA);
         batch.setColor(Color.WHITE);
         vfxManager.cleanUpBuffers();
@@ -120,13 +127,14 @@ public class GameScreen extends JamScreen {
         batch.begin();
         viewport.apply();
         batch.setProjectionMatrix(camera.combined);
-//        entityController.draw(paused ? 0 : delta);
+        unBox.render(batch);
         shapeDrawer.setDefaultLineWidth(2f);
-        debugShapeDrawer.render(world);
+        debugShapeDrawer.render(unBox.getWorld());
         batch.end();
         vfxManager.endInputCapture();
         vfxManager.applyEffects();
         vfxManager.renderToScreen();
+        unBox.postRender();
     
         batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         stage.draw();
