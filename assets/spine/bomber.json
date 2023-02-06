@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "sLEbLX871Ro",
+	"hash": "2CzN26O4IRU",
 	"spine": "4.1.19",
 	"x": -143,
 	"y": -53.47,
@@ -37,7 +37,7 @@
 	}
 ],
 "animations": {
-	"animation": {
+	"spark": {
 		"attachments": {
 			"default": {
 				"game/spark-Layer-2": {
@@ -48,6 +48,22 @@
 						]
 					}
 				}
+			}
+		}
+	},
+	"spawn": {
+		"slots": {
+			"game/bomber": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"game/spark-Layer-2": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
 			}
 		}
 	}

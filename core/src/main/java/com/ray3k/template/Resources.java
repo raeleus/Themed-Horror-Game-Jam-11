@@ -48,7 +48,8 @@ public class Resources {
         SpineBlood.skinBlood04 = SpineBlood.skeletonData.findSkin("blood04");
         SpineBomber.skeletonData = assetManager.get("spine/bomber.json");
         SpineBomber.animationData = assetManager.get("spine/bomber.json-animation");
-        SpineBomber.animationAnimation = SpineBomber.skeletonData.findAnimation("animation");
+        SpineBomber.animationSpark = SpineBomber.skeletonData.findAnimation("spark");
+        SpineBomber.animationSpawn = SpineBomber.skeletonData.findAnimation("spawn");
         SpineBomber.boneRoot = SpineBomber.skeletonData.findBone("root");
         SpineBomber.slotGameBomber = SpineBomber.skeletonData.findSlot("game/bomber");
         SpineBomber.slotGameSparkLayer2 = SpineBomber.skeletonData.findSlot("game/spark-Layer-2");
@@ -191,14 +192,7 @@ public class Resources {
         SpineStageWalls.skinDefault = SpineStageWalls.skeletonData.findSkin("default");
         SpineTanker.skeletonData = assetManager.get("spine/tanker.json");
         SpineTanker.animationData = assetManager.get("spine/tanker.json-animation");
-        SpineTanker.animationAngle0 = SpineTanker.skeletonData.findAnimation("angle0");
-        SpineTanker.animationAngle45 = SpineTanker.skeletonData.findAnimation("angle45");
-        SpineTanker.animationAngle90 = SpineTanker.skeletonData.findAnimation("angle90");
-        SpineTanker.animationAngle135 = SpineTanker.skeletonData.findAnimation("angle135");
-        SpineTanker.animationAngle180 = SpineTanker.skeletonData.findAnimation("angle180");
-        SpineTanker.animationAngle240 = SpineTanker.skeletonData.findAnimation("angle240");
-        SpineTanker.animationAngle270 = SpineTanker.skeletonData.findAnimation("angle270");
-        SpineTanker.animationAngle315 = SpineTanker.skeletonData.findAnimation("angle315");
+        SpineTanker.animationSpawn = SpineTanker.skeletonData.findAnimation("spawn");
         SpineTanker.boneRoot = SpineTanker.skeletonData.findBone("root");
         SpineTanker.boneRotater = SpineTanker.skeletonData.findBone("rotater");
         SpineTanker.slotRotater = SpineTanker.skeletonData.findSlot("rotater");
@@ -269,7 +263,9 @@ public class Resources {
 
         public static AnimationStateData animationData;
 
-        public static Animation animationAnimation;
+        public static Animation animationSpark;
+
+        public static Animation animationSpawn;
 
         public static BoneData boneRoot;
 
@@ -589,21 +585,7 @@ public class Resources {
 
         public static AnimationStateData animationData;
 
-        public static Animation animationAngle0;
-
-        public static Animation animationAngle45;
-
-        public static Animation animationAngle90;
-
-        public static Animation animationAngle135;
-
-        public static Animation animationAngle180;
-
-        public static Animation animationAngle240;
-
-        public static Animation animationAngle270;
-
-        public static Animation animationAngle315;
+        public static Animation animationSpawn;
 
         public static BoneData boneRoot;
 

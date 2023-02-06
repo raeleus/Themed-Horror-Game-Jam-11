@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "G7uF0teNYS8",
+	"hash": "oGnYOp/NOws",
 	"spine": "4.1.19",
 	"x": -72.5,
 	"y": -72,
@@ -31,74 +31,18 @@
 	}
 ],
 "animations": {
-	"angle0": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{}
+	"spawn": {
+		"slots": {
+			"game/tanker-body": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
 				]
-			}
-		}
-	},
-	"angle45": {
-		"bones": {
+			},
 			"rotater": {
-				"rotate": [
-					{ "value": 45 }
-				]
-			}
-		}
-	},
-	"angle90": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 90 }
-				]
-			}
-		}
-	},
-	"angle135": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 135 }
-				]
-			}
-		}
-	},
-	"angle180": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 180 }
-				]
-			}
-		}
-	},
-	"angle240": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 240 }
-				]
-			}
-		}
-	},
-	"angle270": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 270 }
-				]
-			}
-		}
-	},
-	"angle315": {
-		"bones": {
-			"rotater": {
-				"rotate": [
-					{ "value": 315 }
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
 				]
 			}
 		}

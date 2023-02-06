@@ -77,6 +77,12 @@ public class BehaviorBullet extends BehaviourAdapter {
             var otherEd = other.getBehaviour(EntityData.class);
             if (otherEd != null && other.getBehaviour(owner) == null && otherEd.health > 0) {
                 destroy = true;
+                
+                var fastMovement = other.getBehaviour(BehaviorZombieFastMovement.class);
+                if (fastMovement != null) {
+                    fastMovement.speed = fastMovement.speed / 2;
+                }
+                
                 otherEd.health -= damage;
                 if (otherEd.health <= 0) {
                     other.destroy();
