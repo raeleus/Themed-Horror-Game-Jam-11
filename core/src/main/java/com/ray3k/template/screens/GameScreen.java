@@ -100,8 +100,16 @@ public class GameScreen extends JamScreen {
         debugShapeDrawer = new Box2DDebugShapeDrawer(shapeDrawer);
         
         unBox = new UnBox(new Vector2(0, 0), true);
+        
+        var floor = new GameObject(unBox);
+        new BehaviorFloor(floor);
+        
+        var walls = new GameObject(unBox);
+        new BehaviorWalls(walls);
+        
         player = new GameObject(unBox);
         new BehaviorPlayer(player);
+        
         var enemy = new GameObject(unBox);
         new BehaviorZombie(enemy);
     }

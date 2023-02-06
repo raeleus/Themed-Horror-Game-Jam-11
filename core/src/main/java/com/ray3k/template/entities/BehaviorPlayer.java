@@ -1,7 +1,9 @@
 package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
@@ -22,7 +24,11 @@ public class BehaviorPlayer extends BehaviourAdapter {
     public void start() {
         go = getGameObject();
         ed = new EntityData(go, skeletonData, animationData, 512, 288);
-        new CreateCircleFixtureBehaviour(p2m(10), go);
+    
+        var def = new FixtureDef();
+        def.filter.categoryBits = CATEGORY_CHARACTER;
+        new CreateCircleFixtureBehaviour(Vector2.Zero, p2m(10), def, go);
+        
         new BehaviorEntity(go);
         new BehaviorKeyboardMovement(go, 300);
         new BehaviorKeyboardShooting(go);
