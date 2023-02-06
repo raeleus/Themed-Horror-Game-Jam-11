@@ -52,29 +52,5 @@ public class BehaviorKeyboardMovement extends BehaviourAdapter {
         } else {
             gameObject.getBody().setLinearVelocity(p2m(0), p2m(0));
         }
-        
-        //aiming angle
-        angle = 0f;
-        if (Core.isBindingPressed(Binding.SHOOT_LEFT)) {
-            angle = 180;
-            if (Core.isBindingPressed(Binding.SHOOT_UP)) {
-                angle = 135;
-            } else if (Core.isBindingPressed(Binding.SHOOT_DOWN)) {
-                angle = 225;
-            }
-        } else if (Core.isBindingPressed(Binding.SHOOT_RIGHT)) {
-            angle = 0;
-            if (Core.isBindingPressed(Binding.SHOOT_UP)) {
-                angle = 45;
-            } else if (Core.isBindingPressed(Binding.SHOOT_DOWN)) {
-                angle = 315;
-            }
-        } else if (Core.isBindingPressed(Binding.SHOOT_UP)) {
-            angle = 90;
-        } else if (Core.isBindingPressed(Binding.SHOOT_DOWN)) {
-            angle = 270;
-        }
-    
-        gameObject.getBody().setTransform(gameObject.getBody().getPosition(), MathUtils.degRad * angle);
     }
 }

@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "JkJ/F5ONksU",
+	"hash": "Mg0KSrvps74",
 	"spine": "4.1.19",
 	"x": -170.66,
 	"y": -28.16,
@@ -10,11 +10,12 @@
 	"audio": ""
 },
 "bones": [
-	{ "name": "root" }
+	{ "name": "root" },
+	{ "name": "scaler", "parent": "root" }
 ],
 "slots": [
-	{ "name": "game/rocket-trail-Layer-2", "bone": "root", "attachment": "game/rocket-trail-Layer-2" },
-	{ "name": "game/rocket", "bone": "root", "attachment": "game/rocket" }
+	{ "name": "game/rocket-trail-Layer-2", "bone": "scaler", "attachment": "game/rocket-trail-Layer-2" },
+	{ "name": "game/rocket", "bone": "scaler", "attachment": "game/rocket" }
 ],
 "skins": [
 	{

@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "5isJs9Bh+qs",
+	"hash": "hRvz8fzQtpE",
 	"spine": "4.1.19",
-	"x": -123.5,
-	"y": -113.5,
-	"width": 240,
-	"height": 228,
+	"x": -33.5,
+	"y": -28,
+	"width": 60,
+	"height": 57,
 	"images": "",
 	"audio": ""
 },
@@ -20,7 +20,7 @@
 		"name": "default",
 		"attachments": {
 			"game/stage-compass": {
-				"game/stage-compass": { "x": -3.5, "y": 0.5, "width": 240, "height": 228 }
+				"game/stage-compass": { "x": -3.5, "y": 0.5, "scaleX": 0.25, "scaleY": 0.25, "width": 240, "height": 228 }
 			}
 		}
 	}

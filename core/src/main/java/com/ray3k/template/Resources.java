@@ -163,6 +163,7 @@ public class Resources {
         SpineRocket.animationData = assetManager.get("spine/rocket.json-animation");
         SpineRocket.animationAnimation = SpineRocket.skeletonData.findAnimation("animation");
         SpineRocket.boneRoot = SpineRocket.skeletonData.findBone("root");
+        SpineRocket.boneScaler = SpineRocket.skeletonData.findBone("scaler");
         SpineRocket.slotGameRocketTrailLayer2 = SpineRocket.skeletonData.findSlot("game/rocket-trail-Layer-2");
         SpineRocket.slotGameRocket = SpineRocket.skeletonData.findSlot("game/rocket");
         SpineRocket.skinDefault = SpineRocket.skeletonData.findSkin("default");
@@ -519,6 +520,8 @@ public class Resources {
         public static Animation animationAnimation;
 
         public static BoneData boneRoot;
+
+        public static BoneData boneScaler;
 
         public static SlotData slotGameRocketTrailLayer2;
 

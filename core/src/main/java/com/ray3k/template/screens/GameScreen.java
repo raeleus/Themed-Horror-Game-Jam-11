@@ -101,8 +101,9 @@ public class GameScreen extends JamScreen {
         
         unBox = new UnBox(new Vector2(0, 0), true);
         player = new GameObject(unBox);
-        new BehaviorPlayer(player, SpinePlayer.skeletonData, SpinePlayer.animationData, 512, 288);
-        new BehaviorKeyboardMovement(player, 300);
+        new BehaviorPlayer(player);
+        var enemy = new GameObject(unBox);
+        new BehaviorZombie(enemy);
     }
     
     @Override
