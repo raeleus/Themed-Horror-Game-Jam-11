@@ -77,9 +77,11 @@ public class Resources {
         SpineBullet.animationData = assetManager.get("spine/bullet.json-animation");
         SpineBullet.animationAnimation = SpineBullet.skeletonData.findAnimation("animation");
         SpineBullet.boneRoot = SpineBullet.skeletonData.findBone("root");
+        SpineBullet.slotGameRocketTrailLayer2 = SpineBullet.skeletonData.findSlot("game/rocket-trail-Layer-2");
         SpineBullet.slotGameBulletRed = SpineBullet.skeletonData.findSlot("game/bullet-red");
         SpineBullet.skinGrenade = SpineBullet.skeletonData.findSkin("grenade");
         SpineBullet.skinRed = SpineBullet.skeletonData.findSkin("red");
+        SpineBullet.skinRocket = SpineBullet.skeletonData.findSkin("rocket");
         SpineBullet.skinShell = SpineBullet.skeletonData.findSkin("shell");
         SpineBullet.skinWhite = SpineBullet.skeletonData.findSkin("white");
         SpineBullet.skinYellow = SpineBullet.skeletonData.findSkin("yellow");
@@ -333,11 +335,15 @@ public class Resources {
 
         public static BoneData boneRoot;
 
+        public static SlotData slotGameRocketTrailLayer2;
+
         public static SlotData slotGameBulletRed;
 
         public static com.esotericsoftware.spine.Skin skinGrenade;
 
         public static com.esotericsoftware.spine.Skin skinRed;
+
+        public static com.esotericsoftware.spine.Skin skinRocket;
 
         public static com.esotericsoftware.spine.Skin skinShell;
 

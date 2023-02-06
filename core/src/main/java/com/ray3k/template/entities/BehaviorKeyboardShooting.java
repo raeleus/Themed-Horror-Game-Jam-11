@@ -82,7 +82,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                     case ROCKET:
                         timer = rocketDelay;
                         bullet = new GameObject(unBox);
-                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
+                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
                                 rocketAngleRange), 550f);
                         bulletBehavior.owner = gameObject;
                         bulletBehavior.damage = 30f;

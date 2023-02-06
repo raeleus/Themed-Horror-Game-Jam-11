@@ -1,11 +1,11 @@
 {
 "skeleton": {
-	"hash": "JHZbn/orcl4",
+	"hash": "gJC3fpLrohw",
 	"spine": "4.1.19",
-	"x": -23,
-	"y": -25,
-	"width": 46,
-	"height": 50,
+	"x": -160,
+	"y": -32.5,
+	"width": 209.5,
+	"height": 62,
 	"images": "",
 	"audio": ""
 },
@@ -13,6 +13,7 @@
 	{ "name": "root" }
 ],
 "slots": [
+	{ "name": "game/rocket-trail-Layer-2", "bone": "root", "attachment": "trail" },
 	{ "name": "game/bullet-red", "bone": "root", "attachment": "bullet" }
 ],
 "skins": [
@@ -29,6 +30,25 @@
 		"attachments": {
 			"game/bullet-red": {
 				"bullet": { "name": "game/bullet-red", "x": -3.49, "y": 0.03, "width": 33, "height": 19 }
+			}
+		}
+	},
+	{
+		"name": "rocket",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/rocket", "x": 6, "y": -0.5, "width": 87, "height": 45 }
+			},
+			"game/rocket-trail-Layer-2": {
+				"trail": {
+					"name": "game/rocket-trail-Layer-2",
+					"path": "game/rocket-trail-Layer-",
+					"x": -89,
+					"y": -1.5,
+					"width": 142,
+					"height": 62,
+					"sequence": { "count": 6, "start": 2 }
+				}
 			}
 		}
 	},
@@ -58,6 +78,19 @@
 	}
 ],
 "animations": {
-	"animation": {}
+	"animation": {
+		"attachments": {
+			"rocket": {
+				"game/rocket-trail-Layer-2": {
+					"trail": {
+						"sequence": [
+							{ "mode": "once", "delay": 0.0333 },
+							{ "time": 0.2333, "mode": "once", "delay": 0.0833 }
+						]
+					}
+				}
+			}
+		}
+	}
 }
 }
