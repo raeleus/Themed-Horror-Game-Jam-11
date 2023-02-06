@@ -47,6 +47,13 @@ public class BehaviorEntity extends BehaviourAdapter {
     
     @Override
     public void onDestroy() {
-        if (player != null) totalScore += ed.score;
+        if (player != null) {
+            totalScore += ed.score;
+            if (totalScore > barScore) {
+                barScore += 1000;
+                var mo = player.getBehaviour(BehaviorKeyboardShooting.class);
+                mo.changeWeapon();
+            }
+        }
     }
 }

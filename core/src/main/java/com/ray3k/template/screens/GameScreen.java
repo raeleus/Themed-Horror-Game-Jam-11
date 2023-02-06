@@ -36,11 +36,13 @@ public class GameScreen extends JamScreen {
     public static UnBox unBox;
     public static GameObject player;
     public static int totalScore;
+    public static int barScore;
     
     @Override
     public void show() {
         super.show();
         totalScore = 0;
+        barScore = 1000;
     
         gameScreen = this;
         BG_COLOR.set(Color.BLACK);

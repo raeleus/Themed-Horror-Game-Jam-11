@@ -2,6 +2,7 @@ package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
 import dev.lyze.gdxUnBox2d.GameObject;
@@ -111,5 +112,11 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                 }
             }
         }
+    }
+    
+    public void changeWeapon() {
+        Array<ShootingMode> modes = new Array<>(ShootingMode.values());
+        modes.removeValue(shootingMode, true);
+        shootingMode = modes.random();
     }
 }
