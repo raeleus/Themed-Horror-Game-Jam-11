@@ -88,29 +88,20 @@ public class GameScreen extends JamScreen {
         shapeDrawer = new ShapeDrawer(batch, skin.getRegion("white"));
         shapeDrawer.setPixelSize(.5f);
     
-        debugShapeDrawer = new Box2DDebugShapeDrawer(shapeDrawer);
-    
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage, this);
         Gdx.input.setInputProcessor(inputMultiplexer);
     
         camera = new OrthographicCamera();
         camera.zoom = 1;
         viewport = new FitViewport(1024, 576, camera);
-    
-        entityController.clear();
-        world.dispose();
-        world = new World(new Vector2(0, 0), true);
-        world.setContactListener(worldContactListener);
 
-        var ogmo = new OgmoReader();
-        ogmo.addListener(new GameOgmoAdapter());
-//        ogmo.readFile(Gdx.files.internal("levels/01-01.json"));
+        
     }
     
     @Override
     public void act(float delta) {
         if (!paused) {
-            entityController.act(delta);
+            
             vfxManager.update(delta);
         }
         stage.act(delta);
@@ -129,7 +120,7 @@ public class GameScreen extends JamScreen {
         batch.begin();
         viewport.apply();
         batch.setProjectionMatrix(camera.combined);
-        entityController.draw(paused ? 0 : delta);
+//        entityController.draw(paused ? 0 : delta);
         shapeDrawer.setDefaultLineWidth(2f);
         debugShapeDrawer.render(world);
         batch.end();
@@ -159,7 +150,6 @@ public class GameScreen extends JamScreen {
     public void hide() {
         super.hide();
         vfxManager.removeAllEffects();
-        entityController.dispose();
     }
     
     @Override
@@ -170,49 +160,5 @@ public class GameScreen extends JamScreen {
     @Override
     public void resume() {
     
-    }
-    
-    private static class GameOgmoAdapter extends OgmoAdapter {
-        @Override
-        public void level(String ogmoVersion, int width, int height, int offsetX, int offsetY,
-                          ObjectMap<String, OgmoValue> valuesMap) {
-            
-        }
-    
-        @Override
-        public void layer(String name, int gridCellWidth, int gridCellHeight, int offsetX, int offsetY) {
-        
-        }
-    
-        @Override
-        public void entity(String name, int id, int x, int y, int width, int height, boolean flippedX, boolean flippedY,
-                           int originX, int originY, int rotation, Array<EntityNode> nodes,
-                           ObjectMap<String, OgmoValue> valuesMap) {
-            
-            switch (name) {
-            }
-            
-        }
-    
-        @Override
-        public void grid(int col, int row, int x, int y, int width, int height, int id) {
-        
-        }
-    
-        @Override
-        public void decal(int x, int y, float originX, float originY, float scaleX, float scaleY, int rotation,
-                          String texture, String folder, ObjectMap<String, OgmoValue> valuesMap) {
-            
-        }
-    
-        @Override
-        public void layerComplete() {
-        
-        }
-    
-        @Override
-        public void levelComplete() {
-        
-        }
     }
 }
