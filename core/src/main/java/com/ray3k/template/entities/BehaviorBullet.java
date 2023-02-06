@@ -8,6 +8,7 @@ import com.esotericsoftware.spine.Skin;
 import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
 import com.ray3k.template.screens.*;
+import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -28,7 +29,6 @@ public class BehaviorBullet extends BehaviourAdapter {
     public Class owner;
     private static final Vector2 temp = new Vector2();
     public float damage = 10f;
-    public boolean destroy;
     
     public BehaviorBullet(GameObject gameObject, Skin skin, float startX, float startY, float direction, float speed) {
         super(gameObject);
@@ -58,7 +58,6 @@ public class BehaviorBullet extends BehaviourAdapter {
     @Override
     public void update(float delta) {
         ed.skeleton.getRootBone().setRotation(go.getBody().getLinearVelocity().angleDeg());
-        if (destroy) go.destroy();
     }
     
     @Override
@@ -71,12 +70,14 @@ public class BehaviorBullet extends BehaviourAdapter {
     
     @Override
     public void onCollisionEnter(GameObject other, Contact contact) {
+        boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
         if (other.getBehaviour(BehaviorWalls.class) != null) {
-            destroy = true;
+            System.out.println("getState() = " + getState());
+            if (!destroyed) go.destroy();
         } else {
             var otherEd = other.getBehaviour(EntityData.class);
             if (otherEd != null && other.getBehaviour(owner) == null && otherEd.health > 0) {
-                destroy = true;
+                if (!destroyed) go.destroy();
                 
                 var fastMovement = other.getBehaviour(BehaviorZombieFastMovement.class);
                 if (fastMovement != null) {
