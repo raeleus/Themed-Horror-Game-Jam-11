@@ -128,7 +128,7 @@ public class GameScreen extends JamScreen {
         stage.act(delta);
         
 //        statsLabel.setText(mouseX + " " + mouseY);
-        statsLabel.setText("Score: " + totalScore);
+        statsLabel.setText("Score: " + totalScore + "\nHighScore: " + preferences.getInteger("high", totalScore));
         fpsLabel.setText(Gdx.graphics.getFramesPerSecond());
     }
     

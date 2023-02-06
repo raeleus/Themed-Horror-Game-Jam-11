@@ -54,6 +54,10 @@ public class BehaviorEntity extends BehaviourAdapter {
                 var mo = player.getBehaviour(BehaviorKeyboardShooting.class);
                 mo.changeWeapon();
             }
+            if (totalScore > preferences.getInteger("high", 0)) {
+                preferences.putInteger("high", totalScore);
+                preferences.flush();
+            }
         }
     }
 }
