@@ -1,0 +1,30 @@
+{
+"skeleton": {
+	"hash": "RkxZVzqv0Po",
+	"spine": "4.1.19",
+	"y": -0.5,
+	"width": 1024,
+	"height": 577,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/stage-floor", "bone": "root", "attachment": "game/stage-floor" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/stage-floor": {
+				"game/stage-floor": { "x": 512, "y": 288, "width": 1024, "height": 577 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

@@ -1,0 +1,118 @@
+{
+"skeleton": {
+	"hash": "GK4HTgDx8qo",
+	"spine": "4.1.19",
+	"x": -168.99,
+	"y": -116.47,
+	"width": 323,
+	"height": 383.5,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "game/boss-head", "parent": "root", "length": 84.01, "rotation": 0.68, "x": -8.49, "y": 184.03 },
+	{ "name": "muzzle", "parent": "game/boss-head", "length": 32, "rotation": -0.68, "x": -0.24, "y": -20 },
+	{ "name": "rotater", "parent": "root", "length": 197, "rotation": -0.29, "x": -2.49, "y": 1.03 }
+],
+"slots": [
+	{ "name": "rotater", "bone": "rotater", "attachment": "game/boss-tank" },
+	{ "name": "game/boss-hand", "bone": "root", "attachment": "game/boss-hand" },
+	{ "name": "game/boss-hand2", "bone": "root", "attachment": "game/boss-hand" },
+	{ "name": "game/boss-body", "bone": "root", "attachment": "game/boss-body" },
+	{ "name": "game/boss-head", "bone": "game/boss-head", "attachment": "game/boss-head" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/boss-body": {
+				"game/boss-body": { "x": -13.49, "y": 86.03, "width": 169, "height": 186 }
+			},
+			"game/boss-hand": {
+				"game/boss-hand": { "x": -103.49, "y": 95.03, "scaleX": -1, "width": 131, "height": 159 }
+			},
+			"game/boss-hand2": {
+				"game/boss-hand": { "x": 88.51, "y": 95.03, "width": 131, "height": 159 }
+			},
+			"game/boss-head": {
+				"game/boss-head": { "x": 1.12, "y": 9.99, "rotation": -0.68, "width": 154, "height": 146 }
+			},
+			"rotater": {
+				"game/boss-tank": { "x": 15.99, "y": 1.08, "rotation": 0.29, "width": 239, "height": 237 }
+			}
+		}
+	}
+],
+"animations": {
+	"stage-0": {},
+	"stage-1": {
+		"slots": {
+			"game/boss-hand2": {
+				"attachment": [
+					{}
+				]
+			}
+		}
+	},
+	"stage-2": {
+		"slots": {
+			"game/boss-hand": {
+				"attachment": [
+					{}
+				]
+			},
+			"game/boss-hand2": {
+				"attachment": [
+					{}
+				]
+			}
+		}
+	},
+	"stage-3": {
+		"slots": {
+			"game/boss-hand": {
+				"attachment": [
+					{}
+				]
+			},
+			"game/boss-hand2": {
+				"attachment": [
+					{}
+				]
+			},
+			"game/boss-head": {
+				"attachment": [
+					{}
+				]
+			}
+		}
+	},
+	"stage-4": {
+		"slots": {
+			"game/boss-body": {
+				"attachment": [
+					{}
+				]
+			},
+			"game/boss-hand": {
+				"attachment": [
+					{}
+				]
+			},
+			"game/boss-hand2": {
+				"attachment": [
+					{}
+				]
+			}
+		},
+		"bones": {
+			"game/boss-head": {
+				"translate": [
+					{ "y": -172 }
+				]
+			}
+		}
+	}
+}
+}

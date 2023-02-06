@@ -1,0 +1,63 @@
+{
+"skeleton": {
+	"hash": "JHZbn/orcl4",
+	"spine": "4.1.19",
+	"x": -23,
+	"y": -25,
+	"width": 46,
+	"height": 50,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/bullet-red", "bone": "root", "attachment": "bullet" }
+],
+"skins": [
+	{
+		"name": "grenade",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/grenade", "width": 46, "height": 50 }
+			}
+		}
+	},
+	{
+		"name": "red",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/bullet-red", "x": -3.49, "y": 0.03, "width": 33, "height": 19 }
+			}
+		}
+	},
+	{
+		"name": "shell",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/bullet-shell", "x": -20, "y": 1, "width": 72, "height": 30 }
+			}
+		}
+	},
+	{
+		"name": "white",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/bullet-white", "x": 0.5, "y": 0.5, "width": 33, "height": 19 }
+			}
+		}
+	},
+	{
+		"name": "yellow",
+		"attachments": {
+			"game/bullet-red": {
+				"bullet": { "name": "game/bullet-yellow", "x": 0.5, "y": 0.5, "width": 33, "height": 19 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

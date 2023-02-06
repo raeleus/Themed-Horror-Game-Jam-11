@@ -1,0 +1,47 @@
+{
+"skeleton": {
+	"hash": "1rpfrXy4Z4c",
+	"spine": "4.1.19",
+	"x": -20,
+	"y": -23,
+	"width": 40,
+	"height": 46,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "dollar", "bone": "root", "attachment": "dollar" }
+],
+"skins": [
+	{
+		"name": "dollar",
+		"attachments": {
+			"dollar": {
+				"dollar": { "name": "game/dollar", "width": 72, "height": 42 }
+			}
+		}
+	},
+	{
+		"name": "gem",
+		"attachments": {
+			"dollar": {
+				"dollar": { "name": "game/gem", "x": 0.5, "y": 0.5, "width": 65, "height": 35 }
+			}
+		}
+	},
+	{
+		"name": "ruby",
+		"attachments": {
+			"dollar": {
+				"dollar": { "name": "game/ruby", "width": 40, "height": 46 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

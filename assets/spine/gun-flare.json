@@ -1,0 +1,49 @@
+{
+"skeleton": {
+	"hash": "FxkhKkM3KO0",
+	"spine": "4.1.19",
+	"x": -4.99,
+	"y": -23.97,
+	"width": 83,
+	"height": 44,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "game/gun-flare", "parent": "root", "length": 84.96, "rotation": 0.66, "x": 1.37, "y": -0.77 }
+],
+"slots": [
+	{ "name": "game/gun-flare", "bone": "game/gun-flare", "attachment": "game/gun-flare" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/gun-flare": {
+				"game/gun-flare": { "x": 35.12, "y": -1.61, "rotation": -0.66, "width": 83, "height": 44 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"game/gun-flare": {
+				"rgba": [
+					{ "color": "ffffffff" },
+					{ "time": 0.0667, "color": "ffffff00" }
+				]
+			}
+		},
+		"bones": {
+			"game/gun-flare": {
+				"translate": [
+					{},
+					{ "time": 0.0667, "x": 12.46 }
+				]
+			}
+		}
+	}
+}
+}

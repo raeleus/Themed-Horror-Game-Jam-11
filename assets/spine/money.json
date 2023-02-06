@@ -1,0 +1,44 @@
+{
+"skeleton": {
+	"hash": "BoDY14l42aA",
+	"spine": "4.1.19",
+	"x": -320.06,
+	"y": -91.37,
+	"width": 237,
+	"height": 743,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "length": 576, "rotation": 90, "x": 1024 },
+	{ "name": "game/money-sign", "parent": "root", "length": 192.67, "rotation": 0.6, "x": -215.76, "y": 286.21 }
+],
+"slots": [
+	{ "name": "game/money-sign", "bone": "game/money-sign", "attachment": "game/money-sign" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/money-sign": {
+				"game/money-sign": { "x": 14.13, "y": -6.23, "rotation": -0.6, "width": 237, "height": 743 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"game/money-sign": {
+				"translate": [
+					{
+						"curve": [ 0.222, 0, 0.444, 1393.24, 0.222, 0, 0.444, 0 ]
+					},
+					{ "time": 0.6667, "x": 1393.24 }
+				]
+			}
+		}
+	}
+}
+}

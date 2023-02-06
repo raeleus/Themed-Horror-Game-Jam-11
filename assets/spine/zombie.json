@@ -1,0 +1,39 @@
+{
+"skeleton": {
+	"hash": "QZVIW8pZSjw",
+	"spine": "4.1.19",
+	"x": -33,
+	"y": -43,
+	"width": 67,
+	"height": 86,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/zombie", "bone": "root", "attachment": "zombie" }
+],
+"skins": [
+	{
+		"name": "zombie",
+		"attachments": {
+			"game/zombie": {
+				"zombie": { "name": "game/zombie", "x": 11.66, "y": 2.09, "width": 67, "height": 87 }
+			}
+		}
+	},
+	{
+		"name": "zombie-fast",
+		"attachments": {
+			"game/zombie": {
+				"zombie": { "name": "game/zombie-fast", "x": 0.5, "width": 67, "height": 86 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

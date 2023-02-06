@@ -1,0 +1,55 @@
+{
+"skeleton": {
+	"hash": "JkJ/F5ONksU",
+	"spine": "4.1.19",
+	"x": -170.66,
+	"y": -28.16,
+	"width": 214.87,
+	"height": 62,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/rocket-trail-Layer-2", "bone": "root", "attachment": "game/rocket-trail-Layer-2" },
+	{ "name": "game/rocket", "bone": "root", "attachment": "game/rocket" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/rocket": {
+				"game/rocket": { "x": 0.71, "y": -0.44, "width": 87, "height": 45 }
+			},
+			"game/rocket-trail-Layer-2": {
+				"game/rocket-trail-Layer-2": {
+					"path": "game/rocket-trail-Layer-",
+					"x": -99.66,
+					"y": 2.84,
+					"width": 142,
+					"height": 62,
+					"sequence": { "count": 6, "start": 2 }
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"attachments": {
+			"default": {
+				"game/rocket-trail-Layer-2": {
+					"game/rocket-trail-Layer-2": {
+						"sequence": [
+							{ "mode": "once", "delay": 0.0333 },
+							{ "time": 0.2333, "mode": "once" }
+						]
+					}
+				}
+			}
+		}
+	}
+}
+}

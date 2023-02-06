@@ -1,0 +1,107 @@
+{
+"skeleton": {
+	"hash": "G7uF0teNYS8",
+	"spine": "4.1.19",
+	"x": -72.5,
+	"y": -72,
+	"width": 177,
+	"height": 144,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "rotater", "parent": "root", "length": 131, "x": 3.2, "y": 0.5 }
+],
+"slots": [
+	{ "name": "rotater", "bone": "rotater", "attachment": "game/tanker" },
+	{ "name": "game/tanker-body", "bone": "root", "attachment": "game/tanker-body" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/tanker-body": {
+				"game/tanker-body": { "x": 2.2, "y": 16.5, "width": 86, "height": 97 }
+			},
+			"rotater": {
+				"game/tanker": { "x": 12.8, "y": -0.5, "width": 177, "height": 144 }
+			}
+		}
+	}
+],
+"animations": {
+	"angle0": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{}
+				]
+			}
+		}
+	},
+	"angle45": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 45 }
+				]
+			}
+		}
+	},
+	"angle90": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 90 }
+				]
+			}
+		}
+	},
+	"angle135": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 135 }
+				]
+			}
+		}
+	},
+	"angle180": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 180 }
+				]
+			}
+		}
+	},
+	"angle240": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 240 }
+				]
+			}
+		}
+	},
+	"angle270": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 270 }
+				]
+			}
+		}
+	},
+	"angle315": {
+		"bones": {
+			"rotater": {
+				"rotate": [
+					{ "value": 315 }
+				]
+			}
+		}
+	}
+}
+}

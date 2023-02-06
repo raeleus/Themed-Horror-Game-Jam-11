@@ -1,0 +1,31 @@
+{
+"skeleton": {
+	"hash": "gT5AWgSS1rQ",
+	"spine": "4.1.19",
+	"x": -40.27,
+	"y": -39.42,
+	"width": 80,
+	"height": 76,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/mine", "bone": "root", "attachment": "game/mine" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/mine": {
+				"game/mine": { "x": -0.27, "y": -1.42, "width": 80, "height": 76 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

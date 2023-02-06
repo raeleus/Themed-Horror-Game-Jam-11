@@ -1,0 +1,57 @@
+{
+"skeleton": {
+	"hash": "sMA/XyU44TY",
+	"spine": "4.1.19",
+	"x": -101,
+	"y": -149.47,
+	"width": 271,
+	"height": 293,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/gore-Layer-1", "bone": "root", "attachment": "game/gore-Layer-1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/gore-Layer-1": {
+				"game/gore-Layer-1": {
+					"path": "game/gore-Layer-",
+					"x": 34.51,
+					"y": -2.97,
+					"width": 271,
+					"height": 293,
+					"sequence": { "count": 7 }
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"game/gore-Layer-1": {
+				"attachment": [
+					{ "time": 0.4 }
+				]
+			}
+		},
+		"attachments": {
+			"default": {
+				"game/gore-Layer-1": {
+					"game/gore-Layer-1": {
+						"sequence": [
+							{ "mode": "once", "delay": 0.05 }
+						]
+					}
+				}
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,57 @@
+{
+"skeleton": {
+	"hash": "dqoLaoX6KSk",
+	"spine": "4.1.19",
+	"x": -104.5,
+	"y": -169.47,
+	"width": 212,
+	"height": 285,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/explosion-Layer-1", "bone": "root", "attachment": "game/explosion-Layer-1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/explosion-Layer-1": {
+				"game/explosion-Layer-1": {
+					"path": "game/explosion-Layer-",
+					"x": 1.51,
+					"y": -26.97,
+					"width": 212,
+					"height": 285,
+					"sequence": { "count": 12 }
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"game/explosion-Layer-1": {
+				"attachment": [
+					{ "time": 0.4333 }
+				]
+			}
+		},
+		"attachments": {
+			"default": {
+				"game/explosion-Layer-1": {
+					"game/explosion-Layer-1": {
+						"sequence": [
+							{ "mode": "once", "delay": 0.0333 }
+						]
+					}
+				}
+			}
+		}
+	}
+}
+}

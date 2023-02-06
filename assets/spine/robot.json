@@ -1,0 +1,31 @@
+{
+"skeleton": {
+	"hash": "ScaPr27olcU",
+	"spine": "4.1.19",
+	"x": -34.13,
+	"y": -54.11,
+	"width": 71,
+	"height": 108,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/robot", "bone": "root", "attachment": "game/robot" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/robot": {
+				"game/robot": { "x": 1.37, "y": -0.11, "width": 71, "height": 108 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

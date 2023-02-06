@@ -1,0 +1,34 @@
+{
+"skeleton": {
+	"hash": "rT20cFnZ2Pk",
+	"spine": "4.1.19",
+	"x": -70.8,
+	"y": -40,
+	"width": 130,
+	"height": 91,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/blood-01", "bone": "root", "attachment": "game/blood-01" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/blood-01": {
+				"game/blood-01": { "x": -5.8, "y": 5.5, "width": 130, "height": 91 },
+				"game/blood-02": { "x": 0.5, "y": 0.5, "width": 91, "height": 105 },
+				"game/blood-03": { "x": 0.5, "width": 101, "height": 132 },
+				"game/blood-04": { "y": 0.5, "width": 78, "height": 81 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

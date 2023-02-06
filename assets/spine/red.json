@@ -1,0 +1,134 @@
+{
+"skeleton": {
+	"hash": "+9634pZGf6c",
+	"spine": "4.1.19",
+	"x": 72,
+	"y": -405.41,
+	"width": 876,
+	"height": 392.5,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "game/red-body", "parent": "root", "length": 179, "rotation": -0.32, "x": 512, "y": -281.91 },
+	{ "name": "game/red-body2", "parent": "game/red-body", "length": 94.37, "rotation": 15.68, "x": 10.88, "y": 22.06 },
+	{ "name": "game/red-body3", "parent": "game/red-body", "length": 91.48, "rotation": 164.46, "x": -26.11, "y": 19.85 },
+	{ "name": "game/red-hand", "parent": "game/red-body2", "length": 65.52, "rotation": 0.58, "x": 57.01, "y": -0.11 },
+	{ "name": "game/red-hand2", "parent": "game/red-body3", "length": 49.73, "rotation": 0.71, "x": 65.79, "y": -1.06 },
+	{ "name": "game/red-fish", "parent": "game/red-body", "length": 147.05, "rotation": -178.12, "x": 367.57, "y": 78.05 },
+	{ "name": "game/red-fish2", "parent": "game/red-body", "length": 132.02, "rotation": -0.55, "x": -342.4, "y": 71.09 },
+	{ "name": "game/red-fish3", "parent": "root", "length": 576, "rotation": 89.54, "x": 1024 },
+	{ "name": "game/red-head", "parent": "game/red-body", "length": 95, "rotation": 0.32, "x": 6.15, "y": 176.04 }
+],
+"slots": [
+	{ "name": "game/red-body", "bone": "game/red-body", "attachment": "game/red-body" },
+	{ "name": "game/red-hand", "bone": "game/red-hand", "attachment": "game/red-hand" },
+	{ "name": "game/red-hand2", "bone": "game/red-hand2", "attachment": "game/red-hand" },
+	{ "name": "game/red-head", "bone": "game/red-head", "attachment": "game/red-head" },
+	{ "name": "game/red-fish", "bone": "game/red-fish", "attachment": "game/red-fish" },
+	{ "name": "game/red-fish2", "bone": "game/red-fish2", "attachment": "game/red-fish" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/red-body": {
+				"game/red-body": { "x": -3.2, "y": 35.98, "rotation": 0.32, "width": 134, "height": 198 }
+			},
+			"game/red-fish": {
+				"game/red-fish": { "x": 69.52, "y": 18.12, "rotation": 178.44, "width": 274, "height": 359 }
+			},
+			"game/red-fish2": {
+				"game/red-fish": { "x": 39.25, "y": -16.41, "scaleX": -1, "rotation": 0.87, "width": 274, "height": 359 }
+			},
+			"game/red-hand": {
+				"game/red-hand": { "x": 34.2, "y": -0.41, "rotation": -15.95, "width": 36, "height": 41 }
+			},
+			"game/red-hand2": {
+				"game/red-hand": { "x": 24.29, "y": -1.71, "rotation": -164.85, "width": 36, "height": 41 }
+			},
+			"game/red-head": {
+				"game/red-head": { "x": -1.13, "y": 11, "width": 162, "height": 164 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"game/red-body": {
+				"translate": [
+					{
+						"curve": [ 0.127, 0, 0.444, 0, 0.127, 143.58, 0.444, 358.96 ]
+					},
+					{ "time": 0.6667, "y": 358.96, "curve": "stepped" },
+					{
+						"time": 1.6667,
+						"y": 358.96,
+						"curve": [ 1.889, 0, 2.288, 0, 1.889, 358.96, 2.288, 142.37 ]
+					},
+					{ "time": 2.3333 }
+				]
+			},
+			"game/red-fish": {
+				"translate": [
+					{ "time": 0.6667 },
+					{ "time": 1.3333, "x": -107.48, "y": -0.6 }
+				]
+			},
+			"game/red-fish2": {
+				"translate": [
+					{ "time": 0.6667 },
+					{ "time": 1.3333, "x": 129.79, "y": 0.73 }
+				]
+			},
+			"game/red-body3": {
+				"translate": [
+					{},
+					{ "time": 0.6333, "x": -50.82, "y": 22.02 },
+					{ "time": 1.1667 },
+					{ "time": 1.8, "x": -50.82, "y": 22.02 },
+					{ "time": 2.3333 }
+				]
+			},
+			"game/red-body2": {
+				"translate": [
+					{},
+					{ "time": 0.6333, "x": 54.62, "y": 24.64 },
+					{ "time": 1.1667 },
+					{ "time": 1.8, "x": 54.62, "y": 24.64 },
+					{ "time": 2.3333 }
+				]
+			},
+			"game/red-hand": {
+				"rotate": [
+					{},
+					{ "time": 0.6333, "value": 360.06 },
+					{ "time": 1.1667 },
+					{ "time": 1.8, "value": 360.06 },
+					{ "time": 2.3333 }
+				]
+			},
+			"game/red-hand2": {
+				"rotate": [
+					{},
+					{ "time": 0.6333, "value": -368.76 },
+					{ "time": 1.1667 },
+					{ "time": 1.8, "value": -368.76 },
+					{ "time": 2.3333 }
+				]
+			},
+			"game/red-head": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "x": 0.11, "y": -20.28 },
+					{ "time": 0.6667 },
+					{ "time": 1, "x": 0.11, "y": -20.28 },
+					{ "time": 1.3333 }
+				]
+			}
+		}
+	}
+}
+}

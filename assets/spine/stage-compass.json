@@ -1,0 +1,31 @@
+{
+"skeleton": {
+	"hash": "5isJs9Bh+qs",
+	"spine": "4.1.19",
+	"x": -123.5,
+	"y": -113.5,
+	"width": 240,
+	"height": 228,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/stage-compass", "bone": "root", "attachment": "game/stage-compass" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/stage-compass": {
+				"game/stage-compass": { "x": -3.5, "y": 0.5, "width": 240, "height": 228 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {}
+}
+}

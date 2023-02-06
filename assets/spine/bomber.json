@@ -1,0 +1,55 @@
+{
+"skeleton": {
+	"hash": "sLEbLX871Ro",
+	"spine": "4.1.19",
+	"x": -143,
+	"y": -53.47,
+	"width": 185.5,
+	"height": 164.97,
+	"images": "",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "game/bomber", "bone": "root", "attachment": "game/bomber" },
+	{ "name": "game/spark-Layer-2", "bone": "root", "attachment": "game/spark-Layer-2" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"game/bomber": {
+				"game/bomber": { "x": -34.49, "y": 14.03, "width": 154, "height": 135 }
+			},
+			"game/spark-Layer-2": {
+				"game/spark-Layer-2": {
+					"path": "game/spark-Layer-",
+					"x": -105.5,
+					"y": 78.5,
+					"width": 75,
+					"height": 66,
+					"sequence": { "count": 8, "start": 2 }
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"attachments": {
+			"default": {
+				"game/spark-Layer-2": {
+					"game/spark-Layer-2": {
+						"sequence": [
+							{ "mode": "once", "delay": 0.0333 },
+							{ "time": 0.3, "mode": "loop", "delay": 0.0833 }
+						]
+					}
+				}
+			}
+		}
+	}
+}
+}
