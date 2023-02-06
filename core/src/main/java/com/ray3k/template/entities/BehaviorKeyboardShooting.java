@@ -13,7 +13,7 @@ import static com.ray3k.template.entities.BehaviorKeyboardShooting.ShootingMode.
 import static com.ray3k.template.screens.GameScreen.*;
 
 public class BehaviorKeyboardShooting extends BehaviourAdapter {
-    private GameObject gameObject;
+    private GameObject go;
     private static final Vector2 temp = new Vector2();
     private static float machineGunDelay = .02f;
     private static float shotGunDelay = .16f;
@@ -27,11 +27,11 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
     public enum ShootingMode {
         MACHINE_GUN, SHOTGUN, ROCKET, GRENADE
     }
-    public ShootingMode shootingMode = ROCKET;
+    public ShootingMode shootingMode = MACHINE_GUN;
     
     public BehaviorKeyboardShooting(GameObject gameObject) {
         super(gameObject);
-        this.gameObject = gameObject;
+        this.go = gameObject;
     }
     
     @Override
@@ -62,7 +62,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
         }
     
         if (shoot) {
-            gameObject.getBody().setTransform(gameObject.getBody().getPosition(), MathUtils.degRad * angle);
+            go.getBody().setTransform(go.getBody().getPosition(), MathUtils.degRad * angle);
             if (timer < 0) {
                 
                 switch (shootingMode) {
@@ -73,7 +73,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                                 grenadeAngleRange), 800f);
                         bulletBehavior.addDeltaX = m2p(player.getBody().getLinearVelocity().x);
                         bulletBehavior.addDeltaY = m2p(player.getBody().getLinearVelocity().y);
-                        bulletBehavior.owner = gameObject;
+                        bulletBehavior.owner = go;
                         bulletBehavior.damage = 0f;
                         bulletBehavior.lifeSpan = .2f;
                         bulletBehavior.createExplosion = true;
@@ -84,7 +84,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bullet = new GameObject(unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
                                 rocketAngleRange), 550f);
-                        bulletBehavior.owner = gameObject;
+                        bulletBehavior.owner = go;
                         bulletBehavior.damage = 30f;
                         bulletBehavior.createExplosion = true;
                         bulletBehavior.explosionDamage = 30f;
@@ -96,7 +96,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                             bullet = new GameObject(unBox);
                             bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinYellow, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - shotGunAngleRange / 2 + MathUtils.random(
                                     shotGunAngleRange), 600f);
-                            bulletBehavior.owner = gameObject;
+                            bulletBehavior.owner = go;
                             bulletBehavior.damage = 16f;
                         }
                         break;
@@ -106,7 +106,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bullet = new GameObject(unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - machineGunAngleRange / 2 + MathUtils.random(
                                 machineGunAngleRange), 800f);
-                        bulletBehavior.owner = gameObject;
+                        bulletBehavior.owner = go;
                         bulletBehavior.damage = 19f;
                         break;
                 }
@@ -118,5 +118,8 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
         Array<ShootingMode> modes = new Array<>(ShootingMode.values());
         modes.removeValue(shootingMode, true);
         shootingMode = modes.random();
+        
+        var money = new GameObject(unBox);
+        new BehaviorMoney(money);
     }
 }

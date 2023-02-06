@@ -7,11 +7,13 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpinePlayer.*;
+import static com.ray3k.template.screens.GameScreen.*;
 
 public class BehaviorPlayer extends BehaviourAdapter {
     private GameObject go;
@@ -44,7 +46,9 @@ public class BehaviorPlayer extends BehaviourAdapter {
     public void onCollisionEnter(GameObject other, Contact contact) {
         if (other.getBehaviour(BehaviorEnemy.class) != null) {
             boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
-            if (!destroyed) go.destroy();
+            if (!destroyed) {
+                go.destroy();
+            }
         }
     }
     
@@ -55,6 +59,8 @@ public class BehaviorPlayer extends BehaviourAdapter {
     
     @Override
     public void onDestroy() {
-        GameScreen.player = null;
+        player = null;
+        var restarter = new GameObject(unBox);
+        new BehaviorRestarter(restarter);
     }
 }

@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.ray3k.template.*;
-import com.ray3k.template.Resources.*;
 import com.ray3k.template.entities.*;
 import com.ray3k.template.screens.DialogDebug.*;
 import com.ray3k.template.screens.DialogPause.*;
@@ -116,6 +115,9 @@ public class GameScreen extends JamScreen {
         
         var spawner = new GameObject(unBox);
         new BehaviorSpawnerSpawner(spawner);
+        
+        var bigMoney = new GameObject(unBox);
+        new BehaviorRed(bigMoney);
     }
     
     @Override

@@ -55,7 +55,7 @@ public class BehaviorBomber extends BehaviourAdapter {
             }
         });
         ed.health = 500;
-        ed.score = 2000;
+        ed.score = 300;
         
         var def = new FixtureDef();
         def.filter.categoryBits = CATEGORY_CHARACTER;

@@ -27,7 +27,7 @@ public class BehaviorZombieFast extends BehaviourAdapter {
         ed.skeleton.setSkin(skinZombieFast);
         ed.animationState.setAnimation(0, animationSpawn, false);
         ed.health = 200;
-        ed.score = 500;
+        ed.score = 200;
         
         var def = new FixtureDef();
         def.filter.categoryBits = CATEGORY_CHARACTER;
