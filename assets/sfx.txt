@@ -1,0 +1,19 @@
+sfx/beam.mp3
+sfx/big-money.mp3
+sfx/buy that for a dollar.mp3
+sfx/enemy-gun.mp3
+sfx/enemy-hurt01.mp3
+sfx/enemy-hurt02.mp3
+sfx/enemy-hurt03.mp3
+sfx/explosion-01.mp3
+sfx/explosion-02.mp3
+sfx/explosion-03.mp3
+sfx/gun.mp3
+sfx/money.mp3
+sfx/ping-01.mp3
+sfx/ping-02.mp3
+sfx/ping-03.mp3
+sfx/player-hurt01.mp3
+sfx/player-hurt02.mp3
+sfx/player-hurt03.mp3
+sfx/rocket.mp3

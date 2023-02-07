@@ -6,7 +6,9 @@ import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
+import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpineMoney.*;
+import static com.ray3k.template.Resources.*;
 
 public class BehaviorMoney extends BehaviourAdapter {
     private GameObject go;
@@ -29,5 +31,7 @@ public class BehaviorMoney extends BehaviourAdapter {
                 if (!destroyed) go.destroy();
             }
         });
+    
+        sfx_money.play(sfx);
     }
 }

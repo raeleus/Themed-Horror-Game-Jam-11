@@ -2,6 +2,7 @@ package com.ray3k.template;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -24,7 +25,47 @@ public class Resources {
 
     public static Skin skin_skin;
 
+    public static Sound sfx_beam;
+
+    public static Sound sfx_bigMoney;
+
+    public static Sound sfx_buyThatForADollar;
+
+    public static Sound sfx_enemyGun;
+
+    public static Sound sfx_enemyHurt01;
+
+    public static Sound sfx_enemyHurt02;
+
+    public static Sound sfx_enemyHurt03;
+
+    public static Sound sfx_explosion01;
+
+    public static Sound sfx_explosion02;
+
+    public static Sound sfx_explosion03;
+
+    public static Sound sfx_gun;
+
+    public static Sound sfx_money;
+
+    public static Sound sfx_ping01;
+
+    public static Sound sfx_ping02;
+
+    public static Sound sfx_ping03;
+
+    public static Sound sfx_playerHurt01;
+
+    public static Sound sfx_playerHurt02;
+
+    public static Sound sfx_playerHurt03;
+
+    public static Sound sfx_rocket;
+
     public static Music bgm_audioSample;
+
+    public static Music bgm_enemyGun;
 
     public static Music bgm_menu;
 
@@ -228,7 +269,27 @@ public class Resources {
         SkinSkinStyles.tfDefault = skin_skin.get("default", TextField.TextFieldStyle.class);
         SkinSkinStyles.ttDefault = skin_skin.get("default", TextTooltip.TextTooltipStyle.class);
         SkinSkinStyles.wDefault = skin_skin.get("default", Window.WindowStyle.class);
+        sfx_beam = assetManager.get("sfx/beam.mp3");
+        sfx_bigMoney = assetManager.get("sfx/big-money.mp3");
+        sfx_buyThatForADollar = assetManager.get("sfx/buy that for a dollar.mp3");
+        sfx_enemyGun = assetManager.get("sfx/enemy-gun.mp3");
+        sfx_enemyHurt01 = assetManager.get("sfx/enemy-hurt01.mp3");
+        sfx_enemyHurt02 = assetManager.get("sfx/enemy-hurt02.mp3");
+        sfx_enemyHurt03 = assetManager.get("sfx/enemy-hurt03.mp3");
+        sfx_explosion01 = assetManager.get("sfx/explosion-01.mp3");
+        sfx_explosion02 = assetManager.get("sfx/explosion-02.mp3");
+        sfx_explosion03 = assetManager.get("sfx/explosion-03.mp3");
+        sfx_gun = assetManager.get("sfx/gun.mp3");
+        sfx_money = assetManager.get("sfx/money.mp3");
+        sfx_ping01 = assetManager.get("sfx/ping-01.mp3");
+        sfx_ping02 = assetManager.get("sfx/ping-02.mp3");
+        sfx_ping03 = assetManager.get("sfx/ping-03.mp3");
+        sfx_playerHurt01 = assetManager.get("sfx/player-hurt01.mp3");
+        sfx_playerHurt02 = assetManager.get("sfx/player-hurt02.mp3");
+        sfx_playerHurt03 = assetManager.get("sfx/player-hurt03.mp3");
+        sfx_rocket = assetManager.get("sfx/rocket.mp3");
         bgm_audioSample = assetManager.get("bgm/audio-sample.mp3");
+        bgm_enemyGun = assetManager.get("bgm/enemy-gun.mp3");
         bgm_menu = assetManager.get("bgm/menu.mp3");
     }
 

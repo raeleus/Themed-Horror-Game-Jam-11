@@ -12,6 +12,7 @@ import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.Resources.SpinePlayer.*;
 import static com.ray3k.template.screens.GameScreen.*;
 
@@ -62,5 +63,17 @@ public class BehaviorPlayer extends BehaviourAdapter {
         player = null;
         var restarter = new GameObject(unBox);
         new BehaviorRestarter(restarter);
+        
+        switch (MathUtils.random(2)) {
+            case 0:
+                sfx_playerHurt01.play(sfx);
+                break;
+            case 1:
+                sfx_playerHurt02.play(sfx);
+                break;
+            case 2:
+                sfx_playerHurt03.play(sfx);
+                break;
+        }
     }
 }

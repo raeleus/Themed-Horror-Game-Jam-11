@@ -15,6 +15,7 @@ import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.screens.GameScreen.*;
 
 public class BehaviorBullet extends BehaviourAdapter {
@@ -155,6 +156,18 @@ public class BehaviorBullet extends BehaviourAdapter {
             var explosionDamageBehavior = new BehaviorExplosionDamage(explosion);
             explosionDamageBehavior.owner = owner;
             explosionDamageBehavior.damage = explosionDamage;
+    
+            switch (MathUtils.random(2)) {
+                case 0:
+                    sfx_explosion01.play(sfx * .1f);
+                    break;
+                case 1:
+                    sfx_explosion02.play(sfx * .1f);
+                    break;
+                case 2:
+                    sfx_explosion03.play(sfx * .1f);
+                    break;
+            }
         }
     }
 }

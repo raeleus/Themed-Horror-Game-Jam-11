@@ -9,6 +9,7 @@ import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.entities.BehaviorKeyboardShooting.ShootingMode.*;
 import static com.ray3k.template.screens.GameScreen.*;
 
@@ -65,8 +66,10 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
             go.getBody().setTransform(go.getBody().getPosition(), MathUtils.degRad * angle);
             if (timer < 0) {
                 
+                
                 switch (shootingMode) {
                     case GRENADE:
+                        sfx_gun.play(sfx * .1f);
                         timer = grenadeDelay;
                         var bullet = new GameObject(unBox);
                         var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinGrenade, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - grenadeAngleRange / 2 + MathUtils.random(
@@ -80,6 +83,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bulletBehavior.explosionDamage = 15f;
                         break;
                     case ROCKET:
+                        sfx_rocket.play(sfx * .1f);
                         timer = rocketDelay;
                         bullet = new GameObject(unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
@@ -91,6 +95,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bulletBehavior.homing = true;
                         break;
                     case SHOTGUN:
+                        sfx_gun.play(sfx * .5f);
                         timer = shotGunDelay;
                         for (int i = 0; i < 6; i++) {
                             bullet = new GameObject(unBox);
@@ -102,6 +107,8 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         break;
                     case MACHINE_GUN:
                     default:
+                        bgm_enemyGun.setVolume(sfx * .2f);
+                        bgm_enemyGun.play();
                         timer = machineGunDelay;
                         bullet = new GameObject(unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - machineGunAngleRange / 2 + MathUtils.random(

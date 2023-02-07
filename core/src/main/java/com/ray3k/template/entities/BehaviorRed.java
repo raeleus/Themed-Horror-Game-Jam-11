@@ -1,11 +1,14 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
+import static com.ray3k.template.Core.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.Resources.SpineRed.*;
 
 public class BehaviorRed extends BehaviourAdapter {
@@ -29,5 +32,13 @@ public class BehaviorRed extends BehaviourAdapter {
                 if (!destroyed) go.destroy();
             }
         });
+        switch (MathUtils.random(1)) {
+            case 0:
+                sfx_buyThatForADollar.play(sfx);
+                break;
+            case 1:
+                sfx_bigMoney.play(sfx);
+                break;
+        }
     }
 }
