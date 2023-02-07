@@ -94,6 +94,7 @@ public class Core extends JamGame {
     public static final short CATEGORY_CHARACTER = 0x1 << 1;
     public static final short CATEGORY_NO_CONTACT = 0x1 << 2;
     public static final short CATEGORY_BULLET = 0x1 << 3;
+    public static final short CATEGORY_PICKUP = 0x1 << 4;
     
     public static boolean isKeyJustPressed(int key) {
         return key == Keys.ANY_KEY ? keysJustPressed.size > 0 : keysJustPressed.contains(key);

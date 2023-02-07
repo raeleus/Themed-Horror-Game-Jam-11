@@ -4,16 +4,14 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
-import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
-import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.Resources.SpinePlayer.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.screens.GameScreen.*;
 
 public class BehaviorPlayer extends BehaviourAdapter {
@@ -45,11 +43,16 @@ public class BehaviorPlayer extends BehaviourAdapter {
     
     @Override
     public void onCollisionEnter(GameObject other, Contact contact) {
+        var pickup = other.getBehaviour(BehaviorPickup.class);
         if (other.getBehaviour(BehaviorEnemy.class) != null) {
             boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
             if (!destroyed) {
                 go.destroy();
             }
+        } else if (pickup != null) {
+            boolean destroyed = pickup.getState() == BehaviourState.DESTROYED || pickup.getState() == BehaviourState.DESTROYING;
+            if (!destroyed) pickup.getGameObject().destroy();
+            sfx_beam.play(sfx);
         }
     }
     

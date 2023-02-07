@@ -19,7 +19,8 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
     
     @Override
     public void start() {
-    
+        var pickup = new GameObject(unBox);
+        new BehaviorPickupSpawner(pickup);
     }
     
     @Override

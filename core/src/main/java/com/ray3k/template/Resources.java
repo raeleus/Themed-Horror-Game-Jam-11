@@ -69,8 +69,6 @@ public class Resources {
 
     public static Music bgm_enemyGun;
 
-    public static Music bgm_menu;
-
     public static void loadResources(AssetManager assetManager) {
         textures_textures = assetManager.get("textures/textures.atlas");
         SpineBeam.skeletonData = assetManager.get("spine/beam.json");
@@ -294,7 +292,6 @@ public class Resources {
         sfx_rocket = assetManager.get("sfx/rocket.mp3");
         bgm_audioSample = assetManager.get("bgm/audio-sample.mp3");
         bgm_enemyGun = assetManager.get("bgm/enemy-gun.mp3");
-        bgm_menu = assetManager.get("bgm/menu.mp3");
     }
 
     public static class SpineBeam {
