@@ -31,6 +31,8 @@ public class Resources {
 
     public static Sound sfx_buyThatForADollar;
 
+    public static Sound sfx_congratulations;
+
     public static Sound sfx_enemyGun;
 
     public static Sound sfx_enemyHurt01;
@@ -99,6 +101,7 @@ public class Resources {
         SpineBomber.skinDefault = SpineBomber.skeletonData.findSkin("default");
         SpineBoss.skeletonData = assetManager.get("spine/boss.json");
         SpineBoss.animationData = assetManager.get("spine/boss.json-animation");
+        SpineBoss.animationSpawn = SpineBoss.skeletonData.findAnimation("spawn");
         SpineBoss.animationStage0 = SpineBoss.skeletonData.findAnimation("stage-0");
         SpineBoss.animationStage1 = SpineBoss.skeletonData.findAnimation("stage-1");
         SpineBoss.animationStage2 = SpineBoss.skeletonData.findAnimation("stage-2");
@@ -272,6 +275,7 @@ public class Resources {
         sfx_beam = assetManager.get("sfx/beam.mp3");
         sfx_bigMoney = assetManager.get("sfx/big-money.mp3");
         sfx_buyThatForADollar = assetManager.get("sfx/buy that for a dollar.mp3");
+        sfx_congratulations = assetManager.get("sfx/congratulations.mp3");
         sfx_enemyGun = assetManager.get("sfx/enemy-gun.mp3");
         sfx_enemyHurt01 = assetManager.get("sfx/enemy-hurt01.mp3");
         sfx_enemyHurt02 = assetManager.get("sfx/enemy-hurt02.mp3");
@@ -355,6 +359,8 @@ public class Resources {
         public static SkeletonData skeletonData;
 
         public static AnimationStateData animationData;
+
+        public static Animation animationSpawn;
 
         public static Animation animationStage0;
 

@@ -1,6 +1,7 @@
 sfx/beam.mp3
 sfx/big-money.mp3
 sfx/buy that for a dollar.mp3
+sfx/congratulations.mp3
 sfx/enemy-gun.mp3
 sfx/enemy-hurt01.mp3
 sfx/enemy-hurt02.mp3

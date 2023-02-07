@@ -1,5 +1,6 @@
 package com.ray3k.template.entities;
 
+import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
@@ -65,6 +66,32 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
         } else if (timeline > 70 && event == eventCounter++) {
             var spawner = new GameObject(unBox);
             new BehaviorTankSpawner(spawner);
+            event++;
+        } else if (timeline > 80 && event == eventCounter++) {
+            for (var spawner : unBox.findBehaviours(BehaviorBomberSpawner.class)) {
+                boolean destroyed = spawner.getState() == BehaviourState.DESTROYED || spawner.getState() == BehaviourState.DESTROYING;
+                if (!destroyed) spawner.destroy();
+            }
+    
+            for (var spawner : unBox.findBehaviours(BehaviorTankSpawner.class)) {
+                boolean destroyed = spawner.getState() == BehaviourState.DESTROYED || spawner.getState() == BehaviourState.DESTROYING;
+                if (!destroyed) spawner.destroy();
+            }
+    
+            for (var spawner : unBox.findBehaviours(BehaviorZombieSpawner.class)) {
+                boolean destroyed = spawner.getState() == BehaviourState.DESTROYED || spawner.getState() == BehaviourState.DESTROYING;
+                if (!destroyed) spawner.destroy();
+            }
+    
+            for (var spawner : unBox.findBehaviours(BehaviorZombieFastSpawner.class)) {
+                boolean destroyed = spawner.getState() == BehaviourState.DESTROYED || spawner.getState() == BehaviourState.DESTROYING;
+                if (!destroyed) spawner.destroy();
+            }
+            
+            var boss = new GameObject(unBox);
+            var bossBehavior = new BehaviorBoss(boss);
+            bossBehavior.startX = 535;
+            bossBehavior.startY = 530;
             event++;
         }
     }

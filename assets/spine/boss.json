@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "GK4HTgDx8qo",
+	"hash": "Fs5ctjgngS4",
 	"spine": "4.1.19",
 	"x": -168.99,
 	"y": -116.47,
@@ -45,6 +45,40 @@
 	}
 ],
 "animations": {
+	"spawn": {
+		"slots": {
+			"game/boss-body": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"game/boss-hand": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"game/boss-hand2": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"game/boss-head": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			},
+			"rotater": {
+				"rgba": [
+					{ "color": "000000ff" },
+					{ "time": 0.3333, "color": "ffffffff" }
+				]
+			}
+		}
+	},
 	"stage-0": {},
 	"stage-1": {
 		"slots": {
