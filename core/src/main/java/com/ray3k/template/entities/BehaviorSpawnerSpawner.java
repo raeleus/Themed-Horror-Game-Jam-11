@@ -62,6 +62,10 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
             var spawner = new GameObject(unBox);
             new BehaviorZombieFastSpawner(spawner);
             event++;
+        } else if (timeline > 70 && event == eventCounter++) {
+            var spawner = new GameObject(unBox);
+            new BehaviorTankSpawner(spawner);
+            event++;
         }
     }
 }
