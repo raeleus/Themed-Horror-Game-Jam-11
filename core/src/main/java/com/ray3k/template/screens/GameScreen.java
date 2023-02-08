@@ -19,6 +19,7 @@ import com.ray3k.template.*;
 import com.ray3k.template.entities.*;
 import com.ray3k.template.screens.DialogDebug.*;
 import com.ray3k.template.screens.DialogPause.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
 import space.earlygrey.shapedrawer.ShapeDrawer;
@@ -104,19 +105,19 @@ public class GameScreen extends JamScreen {
         
         unBox = new UnBox(new Vector2(0, 0), true);
         
-        var floor = new GameObject(unBox);
+        var floor = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorFloor(floor);
         
-        var walls = new GameObject(unBox);
+        var walls = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorWalls(walls);
         
-        player = new GameObject(unBox);
+        player = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorPlayer(player);
         
-        var spawner = new GameObject(unBox);
+        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorSpawnerSpawner(spawner);
         
-        var bigMoney = new GameObject(unBox);
+        var bigMoney = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorRed(bigMoney);
     }
     

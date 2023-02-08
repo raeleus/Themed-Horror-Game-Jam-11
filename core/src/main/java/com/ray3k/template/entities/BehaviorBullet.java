@@ -9,6 +9,7 @@ import com.esotericsoftware.spine.Skin;
 import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
 import dev.lyze.gdxUnBox2d.BehaviourState;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.GameObjectState;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
@@ -128,7 +129,7 @@ public class BehaviorBullet extends BehaviourAdapter {
                     fastMovement.speed = fastMovement.speed / 2;
                 }
     
-                var goreSmall = new GameObject(unBox);
+                var goreSmall = new GameObject(BodyDefType.DynamicBody, unBox);
                 var goreSmallBehavior = new BehaviorGoreSmall(goreSmall);
                 goreSmallBehavior.startX = m2p(go.getBody().getPosition().x);
                 goreSmallBehavior.startY = m2p(go.getBody().getPosition().y);
@@ -137,7 +138,7 @@ public class BehaviorBullet extends BehaviourAdapter {
                 if (otherEd.health <= 0) {
                     boolean otherDestroyed = other.getState() == GameObjectState.DESTROYED || other.getState() == GameObjectState.DESTROYING;
                     if (!otherDestroyed) other.destroy();
-                    var gore = new GameObject(unBox);
+                    var gore = new GameObject(BodyDefType.DynamicBody, unBox);
                     var goreBehavior = new BehaviorGore(gore);
                     goreBehavior.startX = m2p(go.getBody().getPosition().x);
                     goreBehavior.startY = m2p(go.getBody().getPosition().y);
@@ -149,7 +150,7 @@ public class BehaviorBullet extends BehaviourAdapter {
     @Override
     public void onDestroy() {
         if (createExplosion) {
-            var explosion = new GameObject(unBox);
+            var explosion = new GameObject(BodyDefType.DynamicBody, unBox);
             var explosionBehavior = new BehaviorExplosion(explosion);
             explosionBehavior.startX = m2p(go.getBody().getPosition().x);
             explosionBehavior.startY = m2p(go.getBody().getPosition().y);

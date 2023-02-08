@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import dev.lyze.gdxUnBox2d.BehaviourState;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -64,7 +65,7 @@ public class BehaviorPlayer extends BehaviourAdapter {
     @Override
     public void onDestroy() {
         player = null;
-        var restarter = new GameObject(unBox);
+        var restarter = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorRestarter(restarter);
         
         switch (MathUtils.random(2)) {

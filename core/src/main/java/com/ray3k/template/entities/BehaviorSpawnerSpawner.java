@@ -1,6 +1,7 @@
 package com.ray3k.template.entities;
 
 import dev.lyze.gdxUnBox2d.BehaviourState;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
@@ -19,7 +20,7 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
     
     @Override
     public void start() {
-        var pickup = new GameObject(unBox);
+        var pickup = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorPickupSpawner(pickup);
     }
     
@@ -29,43 +30,43 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
         
         var eventCounter = 0;
         if (timeline > 3 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieSpawner(spawner);
             event++;
         } else if (timeline > 10 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieSpawner(spawner);
             event++;
         } else if (timeline > 15 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieSpawner(spawner);
             event++;
         } else if (timeline > 25 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieFastSpawner(spawner);
             event++;
         } else if (timeline > 35 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorBomberSpawner(spawner);
             event++;
         } else if (timeline > 45 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieSpawner(spawner);
             event++;
         } else if (timeline > 50 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieSpawner(spawner);
             event++;
         } else if (timeline > 55 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieFastSpawner(spawner);
             event++;
         } else if (timeline > 60 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorZombieFastSpawner(spawner);
             event++;
         } else if (timeline > 70 && event == eventCounter++) {
-            var spawner = new GameObject(unBox);
+            var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
             new BehaviorTankSpawner(spawner);
             event++;
         } else if (timeline > 80 && event == eventCounter++) {
@@ -89,7 +90,7 @@ public class BehaviorSpawnerSpawner extends BehaviourAdapter {
                 if (!destroyed) spawner.destroy();
             }
             
-            var boss = new GameObject(unBox);
+            var boss = new GameObject(BodyDefType.DynamicBody, unBox);
             var bossBehavior = new BehaviorBoss(boss);
             bossBehavior.startX = 535;
             bossBehavior.startY = 530;

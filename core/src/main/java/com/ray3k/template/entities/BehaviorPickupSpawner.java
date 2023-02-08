@@ -1,6 +1,7 @@
 package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
@@ -26,7 +27,7 @@ public class BehaviorPickupSpawner extends BehaviourAdapter {
         if (timer < 0 && player != null) {
             timer = MathUtils.random(1f, 5f);
     
-            var pickup = new GameObject(unBox);
+            var pickup = new GameObject(BodyDefType.DynamicBody, unBox);
             var pickupBehavior = new BehaviorPickup(pickup);
             
             pickupBehavior.startX = MathUtils.random(36, 992);

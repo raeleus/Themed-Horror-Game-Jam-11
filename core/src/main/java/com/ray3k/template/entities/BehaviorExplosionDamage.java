@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.GameObjectState;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
@@ -46,7 +47,7 @@ public class BehaviorExplosionDamage extends BehaviourAdapter {
                     fastMovement.speed = fastMovement.speed / 2;
                 }
         
-                var goreSmall = new GameObject(unBox);
+                var goreSmall = new GameObject(BodyDefType.DynamicBody, unBox);
                 var goreSmallBehavior = new BehaviorGoreSmall(goreSmall);
                 goreSmallBehavior.startX = m2p(other.getBody().getPosition().x);
                 goreSmallBehavior.startY = m2p(other.getBody().getPosition().y);
@@ -55,7 +56,7 @@ public class BehaviorExplosionDamage extends BehaviourAdapter {
                 if (otherEd.health <= 0) {
                     boolean otherDestroyed = other.getState() == GameObjectState.DESTROYED || other.getState() == GameObjectState.DESTROYING;
                     if (!otherDestroyed) other.destroy();
-                    var gore = new GameObject(unBox);
+                    var gore = new GameObject(BodyDefType.DynamicBody, unBox);
                     var goreBehavior = new BehaviorGore(gore);
                     goreBehavior.startX = m2p(other.getBody().getPosition().x);
                     goreBehavior.startY = m2p(other.getBody().getPosition().y);

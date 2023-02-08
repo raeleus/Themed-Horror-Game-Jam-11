@@ -2,6 +2,7 @@ package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.ray3k.template.screens.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
@@ -29,7 +30,7 @@ public class BehaviorZombieSpawner extends BehaviourAdapter {
         if (timer < 0 && player != null) {
             timer = delay;
     
-            var enemy = new GameObject(unBox);
+            var enemy = new GameObject(BodyDefType.DynamicBody, unBox);
             var zombie = new BehaviorZombie(enemy);
             
             var location = MathUtils.random(3);

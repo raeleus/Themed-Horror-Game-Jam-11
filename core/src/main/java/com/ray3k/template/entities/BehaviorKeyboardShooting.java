@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
@@ -71,7 +72,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                     case GRENADE:
                         sfx_gun.play(sfx * .1f);
                         timer = grenadeDelay;
-                        var bullet = new GameObject(unBox);
+                        var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                         var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinGrenade, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - grenadeAngleRange / 2 + MathUtils.random(
                                 grenadeAngleRange), 800f);
                         bulletBehavior.addDeltaX = m2p(player.getBody().getLinearVelocity().x);
@@ -85,7 +86,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                     case ROCKET:
                         sfx_rocket.play(sfx * .1f);
                         timer = rocketDelay;
-                        bullet = new GameObject(unBox);
+                        bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
                                 rocketAngleRange), 550f);
                         bulletBehavior.owner = go;
@@ -98,7 +99,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         sfx_gun.play(sfx * .5f);
                         timer = shotGunDelay;
                         for (int i = 0; i < 6; i++) {
-                            bullet = new GameObject(unBox);
+                            bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                             bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinYellow, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - shotGunAngleRange / 2 + MathUtils.random(
                                     shotGunAngleRange), 600f);
                             bulletBehavior.owner = go;
@@ -110,7 +111,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bgm_enemyGun.setVolume(sfx * .2f);
                         bgm_enemyGun.play();
                         timer = machineGunDelay;
-                        bullet = new GameObject(unBox);
+                        bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                         bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - machineGunAngleRange / 2 + MathUtils.random(
                                 machineGunAngleRange), 800f);
                         bulletBehavior.owner = go;
@@ -126,7 +127,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
         modes.removeValue(shootingMode, true);
         shootingMode = modes.random();
         
-        var money = new GameObject(unBox);
+        var money = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorMoney(money);
     }
 }
