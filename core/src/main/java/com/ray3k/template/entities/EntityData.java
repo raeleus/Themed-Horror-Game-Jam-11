@@ -11,7 +11,6 @@ public class EntityData extends BehaviourAdapter {
     public AnimationState animationState;
     public float startX;
     public float startY;
-    public BodyType bodyType = BodyType.DynamicBody;
     public float health = 100f;
     public int score = 0;
     

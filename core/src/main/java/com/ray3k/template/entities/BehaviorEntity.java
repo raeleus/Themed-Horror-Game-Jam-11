@@ -26,7 +26,6 @@ public class BehaviorEntity extends BehaviourAdapter {
         var body = go.getBody();
         body.setTransform(p2m(ed.startX), p2m(ed.startY), (0));
         body.setFixedRotation(true);
-        body.setType(ed.bodyType);
     }
     
     @Override
