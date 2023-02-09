@@ -108,7 +108,7 @@ public class GameScreen extends JamScreen {
         var floor = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorFloor(floor);
         
-        var walls = new GameObject(BodyDefType.DynamicBody, unBox);
+        var walls = new GameObject(BodyDefType.StaticBody, unBox);
         new BehaviorWalls(walls);
         
         player = new GameObject(BodyDefType.DynamicBody, unBox);
