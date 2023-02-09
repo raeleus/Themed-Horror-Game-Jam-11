@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.ray3k.template.Resources.*;
 import com.ray3k.template.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -45,25 +46,25 @@ public class BehaviorBoss extends BehaviourAdapter {
         new BehaviorZombieMovement(go, 50);
         new BehaviorEnemy(go);
     
-        var spawner = new GameObject(unBox);
+        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieFastSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieFastSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorBomberSpawner(spawner);
     
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorBomberSpawner(spawner);
     }
     
@@ -90,7 +91,7 @@ public class BehaviorBoss extends BehaviourAdapter {
                 timer = delay;
                 temp.set(player.getBody().getLinearVelocity());
                 var angle = Utils.pointDirection(m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y));
-                var bullet = new GameObject(unBox);
+                var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                 var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinShell, m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), angle, 600);
                 bulletBehavior.damage = 100;
                 bulletBehavior.owner = go;
@@ -101,29 +102,29 @@ public class BehaviorBoss extends BehaviourAdapter {
     @Override
     public void onDestroy() {
         sfx_congratulations.play(sfx);
-        var spawner = new GameObject(unBox);
+        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(unBox);
+        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
     }
 }

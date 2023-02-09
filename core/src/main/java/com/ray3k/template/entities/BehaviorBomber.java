@@ -10,6 +10,7 @@ import com.ray3k.template.*;
 import com.ray3k.template.Resources.*;
 import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.BehaviourState;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -41,13 +42,13 @@ public class BehaviorBomber extends BehaviourAdapter {
                     ed.score = 0;
                     boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
                     if (!destroyed) go.destroy();
-                    var explosion = new GameObject(unBox);
+                    var explosion = new GameObject(BodyDefType.DynamicBody, unBox);
                     var explosionBehavior = new BehaviorExplosion(explosion);
                     explosionBehavior.startX = m2p(go.getBody().getPosition().x);
                     explosionBehavior.startY = m2p(go.getBody().getPosition().y);
                     
                     for (int angle = 0; angle < 360; angle += 360 / 8) {
-                        var bullet = new GameObject(unBox);
+                        var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                         var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinShell, explosionBehavior.startX, explosionBehavior.startY, angle, 400);
                         bulletBehavior.damage = 100;
                     }

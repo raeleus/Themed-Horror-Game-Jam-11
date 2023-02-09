@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.ray3k.template.Resources.*;
 import com.ray3k.template.*;
+import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
@@ -53,7 +54,7 @@ public class BehaviorTank extends BehaviourAdapter {
                 timer = delay;
                 temp.set(player.getBody().getLinearVelocity());
                 var angle = Utils.pointDirection(m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y));
-                var bullet = new GameObject(unBox);
+                var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
                 var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinShell, m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), angle, 600);
                 bulletBehavior.damage = 100;
                 bulletBehavior.owner = go;
