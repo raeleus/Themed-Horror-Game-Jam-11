@@ -123,9 +123,20 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
     }
     
     public void changeWeapon() {
-        Array<ShootingMode> modes = new Array<>(ShootingMode.values());
-        modes.removeValue(shootingMode, true);
-        shootingMode = modes.random();
+        switch (MathUtils.random(3)) {
+            case 0:
+                shootingMode = MACHINE_GUN;
+                break;
+            case 1:
+                shootingMode = SHOTGUN;
+                break;
+            case 2:
+                shootingMode = ROCKET;
+                break;
+            case 3:
+                shootingMode = GRENADE;
+                break;
+        }
         
         var money = new GameObject(BodyDefType.DynamicBody, unBox);
         new BehaviorMoney(money);
