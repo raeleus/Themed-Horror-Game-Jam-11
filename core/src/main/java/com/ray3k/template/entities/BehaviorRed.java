@@ -21,7 +21,7 @@ public class BehaviorRed extends BehaviourAdapter {
     
     @Override
     public void start() {
-        var ed = new EntityData(go, skeletonData, animationData, 0, 0);
+        var ed = new EntityData(go, skeletonData, animationData, 0, 0, DEPTH_SCREEN_ANIMATIONS);
         new BehaviorEntity(go);
         ed.skeleton.getRootBone().setScale(4);
         ed.animationState.setAnimation(0, animationAnimation, false);

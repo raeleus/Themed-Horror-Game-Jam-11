@@ -25,7 +25,7 @@ public class BehaviorPlayer extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, 512, 288);
+        ed = new EntityData(go, skeletonData, animationData, 512, 288, DEPTH_PLAYER);
     
         var def = new FixtureDef();
         def.filter.categoryBits = CATEGORY_CHARACTER;

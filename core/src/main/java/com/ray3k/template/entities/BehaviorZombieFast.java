@@ -1,5 +1,6 @@
 package com.ray3k.template.entities;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -23,7 +24,7 @@ public class BehaviorZombieFast extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_ENEMIES);
         ed.skeleton.setSkin(skinZombieFast);
         ed.animationState.setAnimation(0, animationSpawn, false);
         ed.health = 200;

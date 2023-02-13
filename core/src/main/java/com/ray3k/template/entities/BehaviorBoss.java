@@ -32,7 +32,7 @@ public class BehaviorBoss extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_ENEMIES);
         ed.animationState.setAnimation(0, animationSpawn, false);
         ed.animationState.addAnimation(0, animationStage0, false, 0);
         ed.health = healthMax;

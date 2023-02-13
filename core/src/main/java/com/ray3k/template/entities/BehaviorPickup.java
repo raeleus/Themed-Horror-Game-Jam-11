@@ -22,7 +22,7 @@ public class BehaviorPickup extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_PICKUPS);
         switch (MathUtils.random(2)) {
             case 0:
                 ed.skeleton.setSkin(skinDollar);

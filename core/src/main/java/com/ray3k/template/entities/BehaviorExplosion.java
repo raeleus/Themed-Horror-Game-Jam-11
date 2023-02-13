@@ -7,6 +7,7 @@ import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
+import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpineExplosion.*;
 
 public class BehaviorExplosion extends BehaviourAdapter {
@@ -21,7 +22,7 @@ public class BehaviorExplosion extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_EFFECTS);
         ed.skeleton.getRootBone().setRotation(MathUtils.random(360f));
         ed.animationState.setAnimation(0, animationAnimation, false);
         ed.animationState.addListener(new AnimationStateAdapter() {

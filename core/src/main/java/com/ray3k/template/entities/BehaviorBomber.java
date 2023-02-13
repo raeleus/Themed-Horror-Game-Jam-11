@@ -32,7 +32,7 @@ public class BehaviorBomber extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_ENEMIES);
         ed.animationState.setAnimation(0, animationSpawn, false);
         ed.animationState.setAnimation(1, animationSpark, true);
         ed.animationState.addListener(new AnimationStateAdapter() {

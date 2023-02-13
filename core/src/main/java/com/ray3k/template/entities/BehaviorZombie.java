@@ -22,7 +22,7 @@ public class BehaviorZombie extends BehaviourAdapter {
     @Override
     public void start() {
         go = getGameObject();
-        ed = new EntityData(go, skeletonData, animationData, startX, startY);
+        ed = new EntityData(go, skeletonData, animationData, startX, startY, DEPTH_ENEMIES);
         ed.skeleton.setSkin(skinZombie);
         ed.animationState.setAnimation(0, animationSpawn, false);
         ed.health = 20;

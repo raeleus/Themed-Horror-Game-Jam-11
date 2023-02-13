@@ -51,7 +51,7 @@ public class BehaviorBullet extends BehaviourAdapter {
     @Override
     public void start() {
         lifeTimer = lifeSpan;
-        ed = new EntityData(go, SpineBullet.skeletonData, SpineBullet.animationData, startX, startY);
+        ed = new EntityData(go, SpineBullet.skeletonData, SpineBullet.animationData, startX, startY, DEPTH_BULLETS);
         ed.skeleton.setSkin(skin);
         new BehaviorEntity(go);
         var def = new FixtureDef();

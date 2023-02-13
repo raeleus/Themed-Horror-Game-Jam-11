@@ -87,9 +87,14 @@ public class Core extends JamGame {
     public static ShapeDrawer shapeDrawer;
     public static Transition defaultTransition;
     public static float defaultTransitionDuration;
-    public static float DEPTH_PLAYER = 20;
-    public static float DEPTH_PARTICLES = 10;
-    public static float DEPTH_PARTICLES_BEHIND = 100;
+    public static int DEPTH_FLOOR = -30;
+    public static int DEPTH_WALLS = -20;
+    public static int DEPTH_EFFECTS = -10;
+    public static int DEPTH_ENEMIES = 5;
+    public static int DEPTH_PLAYER = 20;
+    public static int DEPTH_BULLETS = 10;
+    public static int DEPTH_PICKUPS = 0;
+    public static int DEPTH_SCREEN_ANIMATIONS = 30;
     public static final short CATEGORY_BOUNDS = 0x1;
     public static final short CATEGORY_CHARACTER = 0x1 << 1;
     public static final short CATEGORY_NO_CONTACT = 0x1 << 2;

@@ -13,14 +13,16 @@ public class EntityData extends BehaviourAdapter {
     public float startY;
     public float health = 100f;
     public int score = 0;
+    public int depth = 0;
     
     public EntityData(GameObject gameObject, SkeletonData skeletonData, AnimationStateData animationStateData, float startX,
-                      float startY) {
+                      float startY, int depth) {
         super(gameObject);
         this.skeleton = new Skeleton(skeletonData);
         skeletonBounds = new SkeletonBounds();
         animationState = new AnimationState(animationStateData);
         this.startX = startX;
         this.startY = startY;
+        this.depth = depth;
     }
 }

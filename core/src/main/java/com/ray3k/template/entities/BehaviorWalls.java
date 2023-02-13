@@ -21,7 +21,7 @@ public class BehaviorWalls extends BehaviourAdapter {
     
     @Override
     public void start() {
-        var ed = new EntityData(go, skeletonData, animationData, 0, 0);
+        var ed = new EntityData(go, skeletonData, animationData, 0, 0, DEPTH_WALLS);
 //        ed.bodyType = BodyType.StaticBody;
         new BehaviorEntity(go);
         ed.skeleton.getRootBone().setScale(4);
