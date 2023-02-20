@@ -5,8 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import dev.lyze.gdxUnBox2d.BehaviourState;
-import dev.lyze.gdxUnBox2d.BodyDefType;
-import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
@@ -14,11 +13,12 @@ import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpinePlayer.*;
 import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.screens.GameScreen.*;
+import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
 
-public class BehaviorPlayer extends BehaviourAdapter {
-    private GameObject go;
+public class BehaviorPlayer extends BehaviourAdapter<Box2DGameObject>{
+    private Box2DGameObject go;
     private EntityData ed;
-    public BehaviorPlayer(GameObject gameObject) {
+    public BehaviorPlayer(Box2DGameObject gameObject) {
         super(gameObject);
     }
     
@@ -43,7 +43,7 @@ public class BehaviorPlayer extends BehaviourAdapter {
     }
     
     @Override
-    public void onCollisionEnter(GameObject other, Contact contact) {
+    public void onCollisionEnter(Box2DGameObject other, Contact contact) {
         var pickup = other.getBehaviour(BehaviorPickup.class);
         if (other.getBehaviour(BehaviorEnemy.class) != null) {
             boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
@@ -65,7 +65,7 @@ public class BehaviorPlayer extends BehaviourAdapter {
     @Override
     public void onDestroy() {
         player = null;
-        var restarter = new GameObject(BodyDefType.DynamicBody, unBox);
+        var restarter = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorRestarter(restarter);
         
         switch (MathUtils.random(2)) {

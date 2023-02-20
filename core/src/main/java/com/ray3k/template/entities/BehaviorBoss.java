@@ -3,24 +3,23 @@ package com.ray3k.template.entities;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.ray3k.template.Resources.*;
 import com.ray3k.template.*;
-import dev.lyze.gdxUnBox2d.BodyDefType;
-import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
-import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.Resources.SpineBoss.*;
+import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.screens.GameScreen.*;
+import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
 
-public class BehaviorBoss extends BehaviourAdapter {
-    private GameObject go;
+public class BehaviorBoss extends BehaviourAdapter<Box2DGameObject> {
+    private Box2DGameObject go;
     private EntityData ed;
     public float startX;
     public float startY;
-    public BehaviorBoss(GameObject gameObject) {
+    public BehaviorBoss(Box2DGameObject gameObject) {
         super(gameObject);
     }
     public float delay = .4f;
@@ -46,25 +45,25 @@ public class BehaviorBoss extends BehaviourAdapter {
         new BehaviorZombieMovement(go, 50);
         new BehaviorEnemy(go);
     
-        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        var spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieFastSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieFastSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorBomberSpawner(spawner);
     
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorBomberSpawner(spawner);
     }
     
@@ -91,7 +90,7 @@ public class BehaviorBoss extends BehaviourAdapter {
                 timer = delay;
                 temp.set(player.getBody().getLinearVelocity());
                 var angle = Utils.pointDirection(m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y));
-                var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
+                var bullet = new Box2DGameObject(DynamicBody, unBox);
                 var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinShell, m2p(go.getBody().getPosition().x), m2p(go.getBody().getPosition().y), angle, 600);
                 bulletBehavior.damage = 100;
                 bulletBehavior.owner = go;
@@ -102,29 +101,29 @@ public class BehaviorBoss extends BehaviourAdapter {
     @Override
     public void onDestroy() {
         sfx_congratulations.play(sfx);
-        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        var spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorZombieSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
-        spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorTankSpawner(spawner);
     }
 }

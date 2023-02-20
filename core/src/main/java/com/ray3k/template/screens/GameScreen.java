@@ -19,12 +19,14 @@ import com.ray3k.template.*;
 import com.ray3k.template.entities.*;
 import com.ray3k.template.screens.DialogDebug.*;
 import com.ray3k.template.screens.DialogPause.*;
-import dev.lyze.gdxUnBox2d.BodyDefType;
-import dev.lyze.gdxUnBox2d.GameObject;
+import dev.lyze.gdxUnBox2d.Box2DGameObject;
+import dev.lyze.gdxUnBox2d.Box2DUnBox;
 import dev.lyze.gdxUnBox2d.UnBox;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import static com.ray3k.template.Core.*;
+import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
+import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.StaticBody;
 
 public class GameScreen extends JamScreen {
     public static GameScreen gameScreen;
@@ -33,8 +35,8 @@ public class GameScreen extends JamScreen {
     public boolean paused;
     private Label fpsLabel;
     public static Label statsLabel;
-    public static UnBox unBox;
-    public static GameObject player;
+    public static Box2DUnBox unBox;
+    public static Box2DGameObject player;
     public static int totalScore;
     public static int barScore;
     
@@ -102,22 +104,21 @@ public class GameScreen extends JamScreen {
         viewport = new FitViewport(1024, 576, camera);
     
         debugShapeDrawer = new Box2DDebugShapeDrawer(shapeDrawer);
+        unBox = new Box2DUnBox(new Vector2(0, 0), true);
         
-        unBox = new UnBox(new Vector2(0, 0), true);
-        
-        var floor = new GameObject(BodyDefType.DynamicBody, unBox);
+        var floor = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorFloor(floor);
         
-        var walls = new GameObject(BodyDefType.StaticBody, unBox);
+        var walls = new Box2DGameObject(StaticBody, unBox);
         new BehaviorWalls(walls);
         
-        player = new GameObject(BodyDefType.DynamicBody, unBox);
+        player = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorPlayer(player);
         
-        var spawner = new GameObject(BodyDefType.DynamicBody, unBox);
+        var spawner = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorSpawnerSpawner(spawner);
         
-        var bigMoney = new GameObject(BodyDefType.DynamicBody, unBox);
+        var bigMoney = new Box2DGameObject(DynamicBody, unBox);
         new BehaviorRed(bigMoney);
     }
     

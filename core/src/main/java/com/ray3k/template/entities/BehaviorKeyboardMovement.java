@@ -3,17 +3,18 @@ package com.ray3k.template.entities;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.ray3k.template.*;
+import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
 
-public class BehaviorKeyboardMovement extends BehaviourAdapter {
-    private GameObject gameObject;
+public class BehaviorKeyboardMovement extends BehaviourAdapter<Box2DGameObject>{
+    private Box2DGameObject gameObject;
     private static final Vector2 temp = new Vector2();
     private float speed;
     
-    public BehaviorKeyboardMovement(GameObject gameObject, float speed) {
+    public BehaviorKeyboardMovement(Box2DGameObject gameObject, float speed) {
         super(gameObject);
         this.gameObject = gameObject;
         this.speed = speed;
