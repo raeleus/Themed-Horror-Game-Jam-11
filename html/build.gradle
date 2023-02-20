@@ -52,7 +52,7 @@ dependencies {
 	implementation "com.github.tommyettinger:regexodus:0.1.13:sources"
 	implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
 	implementation "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
-	implementation 'com.github.lyze237:gdx-UnBox2D:e924c28c7c:sources'
+	implementation 'com.github.lyze237:gdx-UnBox2D:8f1685802f:sources'
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask
