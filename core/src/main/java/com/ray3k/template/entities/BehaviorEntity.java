@@ -2,19 +2,20 @@ package com.ray3k.template.entities;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
+import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.screens.GameScreen.*;
 
-public class BehaviorEntity extends BehaviourAdapter<Box2DGameObject>{
-    public Box2DGameObject go;
+public class BehaviorEntity extends BehaviourAdapter {
+    public GameObject go;
     public EntityData ed;
     private final static Vector2 temp = new Vector2();
     
-    public BehaviorEntity(Box2DGameObject gameObject) {
+    public BehaviorEntity(GameObject gameObject) {
         super(gameObject);
     }
     

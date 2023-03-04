@@ -3,19 +3,19 @@ package com.ray3k.template.entities;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
+import com.ray3k.template.*;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpineBlood.*;
 
-public class BehaviorBlood extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject go;
+public class BehaviorBlood extends BehaviourAdapter {
+    private GameObject go;
     private EntityData ed;
     public float startX;
     public float startY;
-    public BehaviorBlood(Box2DGameObject gameObject) {
+    public BehaviorBlood(GameObject gameObject) {
         super(gameObject);
     }
     

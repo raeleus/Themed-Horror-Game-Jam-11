@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import dev.lyze.gdxUnBox2d.BehaviourState;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
@@ -12,10 +11,10 @@ import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.Resources.SpineRed.*;
 
-public class BehaviorRed extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject go;
+public class BehaviorRed extends BehaviourAdapter {
+    private GameObject go;
     
-    public BehaviorRed(Box2DGameObject gameObject) {
+    public BehaviorRed(GameObject gameObject) {
         super(gameObject);
         this.go = gameObject;
     }

@@ -3,7 +3,6 @@ package com.ray3k.template.entities;
 import com.esotericsoftware.spine.AnimationState.AnimationStateAdapter;
 import com.esotericsoftware.spine.AnimationState.TrackEntry;
 import dev.lyze.gdxUnBox2d.BehaviourState;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
@@ -11,10 +10,10 @@ import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpineMoney.*;
 import static com.ray3k.template.Resources.*;
 
-public class BehaviorMoney extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject go;
+public class BehaviorMoney extends BehaviourAdapter {
+    private GameObject go;
     
-    public BehaviorMoney(Box2DGameObject gameObject) {
+    public BehaviorMoney(GameObject gameObject) {
         super(gameObject);
         this.go = gameObject;
     }

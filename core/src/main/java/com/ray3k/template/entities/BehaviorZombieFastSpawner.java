@@ -1,18 +1,18 @@
 package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
+import dev.lyze.gdxUnBox2d.BodyDefType;
+import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.screens.GameScreen.*;
-import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
 
-public class BehaviorZombieFastSpawner extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject go;
+public class BehaviorZombieFastSpawner extends BehaviourAdapter {
+    private GameObject go;
     private float delay = 5;
     private float timer;
     
-    public BehaviorZombieFastSpawner(Box2DGameObject gameObject) {
+    public BehaviorZombieFastSpawner(GameObject gameObject) {
         super(gameObject);
         this.go = gameObject;
     }
@@ -28,7 +28,7 @@ public class BehaviorZombieFastSpawner extends BehaviourAdapter<Box2DGameObject>
         if (timer < 0 && player != null) {
             timer = delay;
     
-            var enemy = new Box2DGameObject(DynamicBody, unBox);
+            var enemy = new GameObject(BodyDefType.DynamicBody, unBox);
             var zombie = new BehaviorZombieFast(enemy);
             
             var location = MathUtils.random(3);

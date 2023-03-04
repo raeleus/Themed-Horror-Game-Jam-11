@@ -1,15 +1,14 @@
 package com.ray3k.template.entities;
 
 import com.badlogic.gdx.math.MathUtils;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.*;
 
-public class BehaviorEnemy extends BehaviourAdapter<Box2DGameObject>{
-    public BehaviorEnemy(Box2DGameObject gameObject) {
+public class BehaviorEnemy extends BehaviourAdapter {
+    public BehaviorEnemy(GameObject gameObject) {
         super(gameObject);
     }
     
