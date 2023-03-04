@@ -8,6 +8,7 @@ import com.ray3k.template.Resources.*;
 import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.*;
@@ -64,7 +65,7 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
         }
     
         if (shoot) {
-            go.getBody().setTransform(go.getBody().getPosition(), MathUtils.degRad * angle);
+            go.getBehaviour(Box2dBehaviour.class).getBody().setTransform(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition(), MathUtils.degRad * angle);
             if (timer < 0) {
                 
                 
@@ -72,11 +73,12 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                     case GRENADE:
                         sfx_gun.play(sfx * .1f);
                         timer = grenadeDelay;
-                        var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
-                        var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinGrenade, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - grenadeAngleRange / 2 + MathUtils.random(
+                        var bullet = new GameObject(unBox);
+                        new Box2dBehaviour(BodyDefType.DynamicBody, bullet);
+                        var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinGrenade, m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x), m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y), angle - grenadeAngleRange / 2 + MathUtils.random(
                                 grenadeAngleRange), 800f);
-                        bulletBehavior.addDeltaX = m2p(player.getBody().getLinearVelocity().x);
-                        bulletBehavior.addDeltaY = m2p(player.getBody().getLinearVelocity().y);
+                        bulletBehavior.addDeltaX = m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getLinearVelocity().x);
+                        bulletBehavior.addDeltaY = m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getLinearVelocity().y);
                         bulletBehavior.owner = go;
                         bulletBehavior.damage = 0f;
                         bulletBehavior.lifeSpan = .2f;
@@ -86,8 +88,9 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                     case ROCKET:
                         sfx_rocket.play(sfx * .1f);
                         timer = rocketDelay;
-                        bullet = new GameObject(BodyDefType.DynamicBody, unBox);
-                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
+                        bullet = new GameObject(unBox);
+                        new Box2dBehaviour(BodyDefType.DynamicBody, bullet);
+                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinRocket, m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x), m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y), angle - rocketAngleRange / 2 + MathUtils.random(
                                 rocketAngleRange), 550f);
                         bulletBehavior.owner = go;
                         bulletBehavior.damage = 30f;
@@ -99,8 +102,9 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         sfx_gun.play(sfx * .5f);
                         timer = shotGunDelay;
                         for (int i = 0; i < 6; i++) {
-                            bullet = new GameObject(BodyDefType.DynamicBody, unBox);
-                            bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinYellow, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - shotGunAngleRange / 2 + MathUtils.random(
+                            bullet = new GameObject(unBox);
+                            new Box2dBehaviour(BodyDefType.DynamicBody, bullet);
+                            bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinYellow, m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x), m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y), angle - shotGunAngleRange / 2 + MathUtils.random(
                                     shotGunAngleRange), 600f);
                             bulletBehavior.owner = go;
                             bulletBehavior.damage = 16f;
@@ -111,8 +115,9 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                         bgm_enemyGun.setVolume(sfx * .2f);
                         bgm_enemyGun.play();
                         timer = machineGunDelay;
-                        bullet = new GameObject(BodyDefType.DynamicBody, unBox);
-                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBody().getPosition().x), m2p(player.getBody().getPosition().y), angle - machineGunAngleRange / 2 + MathUtils.random(
+                        bullet = new GameObject(unBox);
+                        new Box2dBehaviour(BodyDefType.DynamicBody, bullet);
+                        bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinWhite, m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x), m2p(player.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y), angle - machineGunAngleRange / 2 + MathUtils.random(
                                 machineGunAngleRange), 800f);
                         bulletBehavior.owner = go;
                         bulletBehavior.damage = 19f;
@@ -138,7 +143,8 @@ public class BehaviorKeyboardShooting extends BehaviourAdapter {
                 break;
         }
         
-        var money = new GameObject(BodyDefType.DynamicBody, unBox);
+        var money = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.DynamicBody, money);
         new BehaviorMoney(money);
     }
 }

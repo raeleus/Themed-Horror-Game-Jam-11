@@ -13,6 +13,7 @@ import dev.lyze.gdxUnBox2d.BehaviourState;
 import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
@@ -42,13 +43,15 @@ public class BehaviorBomber extends BehaviourAdapter {
                     ed.score = 0;
                     boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
                     if (!destroyed) go.destroy();
-                    var explosion = new GameObject(BodyDefType.DynamicBody, unBox);
+                    var explosion = new GameObject(unBox);
+                    new Box2dBehaviour(BodyDefType.DynamicBody, explosion);
                     var explosionBehavior = new BehaviorExplosion(explosion);
-                    explosionBehavior.startX = m2p(go.getBody().getPosition().x);
-                    explosionBehavior.startY = m2p(go.getBody().getPosition().y);
+                    explosionBehavior.startX = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+                    explosionBehavior.startY = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
                     
                     for (int angle = 0; angle < 360; angle += 360 / 8) {
-                        var bullet = new GameObject(BodyDefType.DynamicBody, unBox);
+                        var bullet = new GameObject(unBox);
+                        new Box2dBehaviour(BodyDefType.DynamicBody, bullet);
                         var bulletBehavior = new BehaviorBullet(bullet, SpineBullet.skinShell, explosionBehavior.startX, explosionBehavior.startY, angle, 400);
                         bulletBehavior.damage = 100;
                     }
@@ -69,7 +72,7 @@ public class BehaviorBomber extends BehaviourAdapter {
     
     @Override
     public void update(float delta) {
-        var body = go.getBody();
+        var body = go.getBehaviour(Box2dBehaviour.class).getBody();
         ed.skeleton.getRootBone().setRotation(body.getAngle() * MathUtils.radDeg);
         
         if (timer >= 0) {

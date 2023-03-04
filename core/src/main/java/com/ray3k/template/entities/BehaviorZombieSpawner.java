@@ -5,6 +5,8 @@ import com.ray3k.template.screens.*;
 import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
+import dev.lyze.gdxUnBox2d.behaviours.SoutBehaviour;
 
 import static com.ray3k.template.Resources.SpineStageFloor.*;
 import static com.ray3k.template.screens.GameScreen.*;
@@ -23,16 +25,17 @@ public class BehaviorZombieSpawner extends BehaviourAdapter {
     public void start() {
     
     }
-    
+
     @Override
     public void update(float delta) {
         timer -= delta;
         if (timer < 0 && player != null) {
             timer = delay;
     
-            var enemy = new GameObject(BodyDefType.DynamicBody, unBox);
+            var enemy = new GameObject(unBox);
+            new Box2dBehaviour(BodyDefType.DynamicBody, enemy);
             var zombie = new BehaviorZombie(enemy);
-            
+
             var location = MathUtils.random(3);
             switch (location) {
                 case 0:

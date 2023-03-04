@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.ray3k.template.*;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 
 import static com.ray3k.template.Core.*;
 
@@ -48,9 +49,9 @@ public class BehaviorKeyboardMovement extends BehaviourAdapter {
         if (move) {
             temp.set(speed, 0);
             temp.rotateDeg(angle);
-            gameObject.getBody().setLinearVelocity(p2m(temp.x), p2m(temp.y));
+            gameObject.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(p2m(temp.x), p2m(temp.y));
         } else {
-            gameObject.getBody().setLinearVelocity(p2m(0), p2m(0));
+            gameObject.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(p2m(0), p2m(0));
         }
     }
 }

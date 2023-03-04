@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.MathUtils;
 import dev.lyze.gdxUnBox2d.BodyDefType;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 
 import static com.ray3k.template.screens.GameScreen.*;
 
@@ -28,9 +29,10 @@ public class BehaviorZombieFastSpawner extends BehaviourAdapter {
         if (timer < 0 && player != null) {
             timer = delay;
     
-            var enemy = new GameObject(BodyDefType.DynamicBody, unBox);
+            var enemy = new GameObject(unBox);
+            new Box2dBehaviour(BodyDefType.DynamicBody, enemy);
             var zombie = new BehaviorZombieFast(enemy);
-            
+
             var location = MathUtils.random(3);
             switch (location) {
                 case 0:

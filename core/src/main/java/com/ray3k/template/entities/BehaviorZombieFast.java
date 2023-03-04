@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
 
 import static com.ray3k.template.Core.*;
@@ -41,7 +42,7 @@ public class BehaviorZombieFast extends BehaviourAdapter {
     
     @Override
     public void update(float delta) {
-        var body = go.getBody();
+        var body = go.getBehaviour(Box2dBehaviour.class).getBody();
         ed.skeleton.getRootBone().setRotation(body.getAngle() * MathUtils.radDeg);
     }
     
