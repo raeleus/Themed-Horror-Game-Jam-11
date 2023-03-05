@@ -3,18 +3,18 @@ package com.ray3k.template.entities;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.ray3k.template.*;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 
 import static com.ray3k.template.Core.*;
 
-public class BehaviorKeyboardMovement extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject gameObject;
+public class BehaviorKeyboardMovement extends BehaviourAdapter {
+    private GameObject gameObject;
     private static final Vector2 temp = new Vector2();
     private float speed;
     
-    public BehaviorKeyboardMovement(Box2DGameObject gameObject, float speed) {
+    public BehaviorKeyboardMovement(GameObject gameObject, float speed) {
         super(gameObject);
         this.gameObject = gameObject;
         this.speed = speed;
@@ -49,9 +49,9 @@ public class BehaviorKeyboardMovement extends BehaviourAdapter<Box2DGameObject>{
         if (move) {
             temp.set(speed, 0);
             temp.rotateDeg(angle);
-            gameObject.getBody().setLinearVelocity(p2m(temp.x), p2m(temp.y));
+            gameObject.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(p2m(temp.x), p2m(temp.y));
         } else {
-            gameObject.getBody().setLinearVelocity(p2m(0), p2m(0));
+            gameObject.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(p2m(0), p2m(0));
         }
     }
 }

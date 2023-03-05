@@ -7,19 +7,20 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.esotericsoftware.spine.Skin;
 import com.ray3k.template.*;
-import dev.lyze.gdxUnBox2d.BehaviourState;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
-import dev.lyze.gdxUnBox2d.GameObjectState;
+import com.ray3k.template.Resources.*;
+import dev.lyze.gdxUnBox2d.*;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import dev.lyze.gdxUnBox2d.behaviours.fixtures.CreateCircleFixtureBehaviour;
+
+import javax.swing.*;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.*;
 import static com.ray3k.template.screens.GameScreen.*;
-import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
 
-public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
-    private Box2DGameObject go;
+public class BehaviorBullet extends BehaviourAdapter {
+    private GameObject go;
     private EntityData ed;
     private Skin skin;
     private float startX;
@@ -28,7 +29,7 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
     private float speed;
     public float addDeltaX;
     public float addDeltaY;
-    public Box2DGameObject owner;
+    public GameObject owner;
     private static final Vector2 temp = new Vector2();
     public float damage = 10f;
     public float lifeSpan = -1f;
@@ -37,9 +38,9 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
     public float explosionDamage = 15f;
     public boolean homing;
     
-    public BehaviorBullet(Box2DGameObject Box2DGameObject, Skin skin, float startX, float startY, float direction, float speed) {
-        super(Box2DGameObject);
-        go = Box2DGameObject;
+    public BehaviorBullet(GameObject gameObject, Skin skin, float startX, float startY, float direction, float speed) {
+        super(gameObject);
+        go = gameObject;
         this.skin = skin;
         this.startX = startX;
         this.startY = startY;
@@ -60,22 +61,22 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
         
         temp.set(p2m(speed), 0);
         temp.rotateDeg(direction);
-        go.getBody().setLinearVelocity(temp.x + p2m(addDeltaX), temp.y + p2m(addDeltaY));
+        go.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(temp.x + p2m(addDeltaX), temp.y + p2m(addDeltaY));
     }
     
     @Override
     public void update(float delta) {
-        ed.skeleton.getRootBone().setRotation(go.getBody().getLinearVelocity().angleDeg());
+        ed.skeleton.getRootBone().setRotation(go.getBehaviour(Box2dBehaviour.class).getBody().getLinearVelocity().angleDeg());
         
         if (homing) {
             BehaviorEnemy closest = null;
             var closestDistance = Float.MAX_VALUE;
-            float x = m2p(getGameObject().getBody().getPosition().x);
-            float y = m2p(getGameObject().getBody().getPosition().y);
-            float direction = go.getBody().getLinearVelocity().angleDeg();
+            float x = m2p(getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+            float y = m2p(getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
+            float direction = go.getBehaviour(Box2dBehaviour.class).getBody().getLinearVelocity().angleDeg();
             for (var enemy : unBox.findBehaviours(BehaviorEnemy.class)) {
-                float enemyX = m2p(enemy.getGameObject().getBody().getPosition().x);
-                float enemyY = m2p(enemy.getGameObject().getBody().getPosition().y);
+                float enemyX = m2p(enemy.getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+                float enemyY = m2p(enemy.getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
                 var distance = Utils.pointDistance(enemyX, enemyY, x, y);
                 var directionToEnemy = Utils.pointDirection(x, y, enemyX, enemyY);
     
@@ -87,12 +88,12 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
             
             if (closest != null) {
                 temp.set(p2m(speed), 0);
-                float targetX = m2p(closest.getGameObject().getBody().getPosition().x);
-                float targetY = m2p(closest.getGameObject().getBody().getPosition().y);
+                float targetX = m2p(closest.getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+                float targetY = m2p(closest.getGameObject().getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
                 float enemyDirection = Utils.pointDirection(x, y, targetX, targetY);
                 direction = Utils.approach360(direction, enemyDirection, 500f * delta);
                 temp.rotateDeg(direction);
-                go.getBody().setLinearVelocity(temp);
+                go.getBehaviour(Box2dBehaviour.class).getBody().setLinearVelocity(temp);
             }
         }
         
@@ -106,41 +107,43 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
     }
     
     @Override
-    public boolean onCollisionPreSolve(Box2DGameObject other, Contact contact, Manifold oldManifold) {
-        if (other == owner) {
+    public boolean onCollisionPreSolve(Behaviour other, Contact contact, Manifold oldManifold) {
+        if (other.getGameObject() == owner) {
             contact.setEnabled(false);
         }
         return false;
     }
     
     @Override
-    public void onCollisionEnter(Box2DGameObject other, Contact contact) {
+    public void onCollisionEnter(Behaviour other, Contact contact) {
         boolean destroyed = getState() == BehaviourState.DESTROYED || getState() == BehaviourState.DESTROYING;
-        if (other.getBehaviour(BehaviorWalls.class) != null) {
+        if (other.getGameObject().getBehaviour(BehaviorWalls.class) != null) {
             if (!destroyed) go.destroy();
         } else {
-            var otherEd = other.getBehaviour(EntityData.class);
-            if (otherEd != null && other != owner && otherEd.health > 0) {
+            var otherEd = other.getGameObject().getBehaviour(EntityData.class);
+            if (otherEd != null && other.getGameObject() != owner && otherEd.health > 0) {
                 if (!destroyed) go.destroy();
                 
-                var fastMovement = other.getBehaviour(BehaviorZombieFastMovement.class);
+                var fastMovement = other.getGameObject().getBehaviour(BehaviorZombieFastMovement.class);
                 if (fastMovement != null) {
                     fastMovement.speed = fastMovement.speed / 2;
                 }
     
-                var goreSmall = new Box2DGameObject(DynamicBody, unBox);
+                var goreSmall = new GameObject(unBox);
+                new Box2dBehaviour(BodyDefType.DynamicBody, goreSmall);
                 var goreSmallBehavior = new BehaviorGoreSmall(goreSmall);
-                goreSmallBehavior.startX = m2p(go.getBody().getPosition().x);
-                goreSmallBehavior.startY = m2p(go.getBody().getPosition().y);
+                goreSmallBehavior.startX = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+                goreSmallBehavior.startY = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
                 
                 otherEd.health -= damage;
                 if (otherEd.health <= 0) {
-                    boolean otherDestroyed = other.getState() == GameObjectState.DESTROYED || other.getState() == GameObjectState.DESTROYING;
-                    if (!otherDestroyed) other.destroy();
-                    var gore = new Box2DGameObject(DynamicBody, unBox);
+                    boolean otherDestroyed = other.getGameObject().getState() == GameObjectState.DESTROYED || other.getGameObject().getState() == GameObjectState.DESTROYING;
+                    if (!otherDestroyed) other.getGameObject().destroy();
+                    var gore = new GameObject(unBox);
+                    new Box2dBehaviour(BodyDefType.DynamicBody, gore);
                     var goreBehavior = new BehaviorGore(gore);
-                    goreBehavior.startX = m2p(go.getBody().getPosition().x);
-                    goreBehavior.startY = m2p(go.getBody().getPosition().y);
+                    goreBehavior.startX = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+                    goreBehavior.startY = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
                 }
             }
         }
@@ -149,10 +152,11 @@ public class BehaviorBullet extends BehaviourAdapter<Box2DGameObject> {
     @Override
     public void onDestroy() {
         if (createExplosion) {
-            var explosion = new Box2DGameObject(DynamicBody, unBox);
+            var explosion = new GameObject(unBox);
+            new Box2dBehaviour(BodyDefType.DynamicBody, explosion);
             var explosionBehavior = new BehaviorExplosion(explosion);
-            explosionBehavior.startX = m2p(go.getBody().getPosition().x);
-            explosionBehavior.startY = m2p(go.getBody().getPosition().y);
+            explosionBehavior.startX = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().x);
+            explosionBehavior.startY = m2p(go.getBehaviour(Box2dBehaviour.class).getBody().getPosition().y);
             var explosionDamageBehavior = new BehaviorExplosionDamage(explosion);
             explosionDamageBehavior.owner = owner;
             explosionDamageBehavior.damage = explosionDamage;

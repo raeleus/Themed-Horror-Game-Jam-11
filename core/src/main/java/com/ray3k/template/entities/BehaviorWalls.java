@@ -4,18 +4,17 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
 import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.behaviours.BehaviourAdapter;
 
 import static com.ray3k.template.Core.*;
 import static com.ray3k.template.Resources.SpineStageWalls.*;
 
-public class BehaviorWalls extends BehaviourAdapter<Box2DGameObject>{
-    private Box2DGameObject go;
+public class BehaviorWalls extends BehaviourAdapter {
+    private GameObject go;
     private static final Vector2 temp = new Vector2();
     
-    public BehaviorWalls(Box2DGameObject gameObject) {
+    public BehaviorWalls(GameObject gameObject) {
         super(gameObject);
         this.go = gameObject;
     }

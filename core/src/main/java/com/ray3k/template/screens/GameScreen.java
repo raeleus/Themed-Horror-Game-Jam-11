@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -19,14 +20,14 @@ import com.ray3k.template.*;
 import com.ray3k.template.entities.*;
 import com.ray3k.template.screens.DialogDebug.*;
 import com.ray3k.template.screens.DialogPause.*;
-import dev.lyze.gdxUnBox2d.Box2DGameObject;
-import dev.lyze.gdxUnBox2d.Box2DUnBox;
+import dev.lyze.gdxUnBox2d.BodyDefType;
+import dev.lyze.gdxUnBox2d.Box2dPhysicsWorld;
+import dev.lyze.gdxUnBox2d.GameObject;
 import dev.lyze.gdxUnBox2d.UnBox;
+import dev.lyze.gdxUnBox2d.behaviours.Box2dBehaviour;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 import static com.ray3k.template.Core.*;
-import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.DynamicBody;
-import static dev.lyze.gdxUnBox2d.box2D.BodyDefType.StaticBody;
 
 public class GameScreen extends JamScreen {
     public static GameScreen gameScreen;
@@ -35,8 +36,8 @@ public class GameScreen extends JamScreen {
     public boolean paused;
     private Label fpsLabel;
     public static Label statsLabel;
-    public static Box2DUnBox unBox;
-    public static Box2DGameObject player;
+    public static UnBox<Box2dPhysicsWorld> unBox;
+    public static GameObject player;
     public static int totalScore;
     public static int barScore;
     
@@ -104,21 +105,27 @@ public class GameScreen extends JamScreen {
         viewport = new FitViewport(1024, 576, camera);
     
         debugShapeDrawer = new Box2DDebugShapeDrawer(shapeDrawer);
-        unBox = new Box2DUnBox(new Vector2(0, 0), true);
         
-        var floor = new Box2DGameObject(DynamicBody, unBox);
+        unBox = new UnBox<>(new Box2dPhysicsWorld(new World(new Vector2(0, 0), true)));
+        
+        var floor = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.DynamicBody, floor);
         new BehaviorFloor(floor);
-        
-        var walls = new Box2DGameObject(StaticBody, unBox);
+
+        var walls = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.StaticBody, walls);
         new BehaviorWalls(walls);
-        
-        player = new Box2DGameObject(DynamicBody, unBox);
+
+        player = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.DynamicBody, player);
         new BehaviorPlayer(player);
-        
-        var spawner = new Box2DGameObject(DynamicBody, unBox);
+
+        var spawner = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.DynamicBody, spawner);
         new BehaviorSpawnerSpawner(spawner);
-        
-        var bigMoney = new Box2DGameObject(DynamicBody, unBox);
+
+        var bigMoney = new GameObject(unBox);
+        new Box2dBehaviour(BodyDefType.DynamicBody, bigMoney);
         new BehaviorRed(bigMoney);
     }
     
